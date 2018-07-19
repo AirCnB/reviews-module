@@ -12,8 +12,8 @@ app.use(function (req, res, next) {
 
 app.listen(3003, () => console.log('Reviews Module listening on port 3003!'))
 
-app.get('/', (req, res) => res.send('Hello World!'))
-app.post('/:houseId', (req, res) => {
+app.get('/:houseId/reviews', (req, res) => res.send('Hello World!'))
+app.post('/:houseId/reviews', (req, res) => {
 	console.log(req.param('houseId'));
 	res.send('Post received');
 })
