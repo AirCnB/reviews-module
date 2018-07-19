@@ -8,7 +8,20 @@ db.once('open', function()       {
 
 var reviewSchema = mongoose.Schema({
 	roomId: Number,
-	//fill out schema
+	user: {
+		name: String,
+		picture: String,
+	}
+	text: String,
+	rating: {
+		accuracy: {type: Number, min: 0, max: 5},
+		communication: {type: Number, min: 0, max: 5},
+		cleanliness: {type: Number, min: 0, max: 5},
+		location: {type: Number, min: 0, max: 5},
+		check-in: {type: Number, min: 0, max: 5},
+		value: {type: Number, min: 0, max: 5}
+	}
+	date: String
 });
 
 var Review = mongoose.model('Review', reviewSchema);
