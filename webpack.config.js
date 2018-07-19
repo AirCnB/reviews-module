@@ -1,11 +1,23 @@
+var path = require('path');
+
 module.exports = {
-  entry: './client/src/index.js',
+  entry: './client/src/index.jsx',
   output: {
     filename: 'bundle.js',
-    path: './client/dist'
+    path: path.resolve(__dirname, 'public')
   },
   module: {
     rules: [
+      {
+        test: /\.jsx?/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env', 'react, airbnb']
+          }
+        }
+      },
       {
         test: /\.css$/,
         use: [
@@ -17,17 +29,7 @@ module.exports = {
             }
           }
         ]
-      },
-      {
-      test: /\.js$/,
-      exclude: /(node_modules|bower_components)/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env']
-        }
       }
-    }
     ]
   }
 };
