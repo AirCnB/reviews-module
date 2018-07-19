@@ -10,7 +10,7 @@ var reviewSchema = mongoose.Schema({
 	roomId: Number,
 	user: {
 		name: String,
-		picture: String,
+		picture: String, //url
 	}
 	text: String,
 	rating: {
