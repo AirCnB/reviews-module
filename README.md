@@ -31,6 +31,7 @@ run it :
 	mongo --host 127.0.0.1:27017
 
 npm install --save-dev eslint-config-airbnb
+npm i eslint-plugin-react@latest --save-dev
 
 presets env react present
 axios
