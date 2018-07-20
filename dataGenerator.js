@@ -4,6 +4,7 @@ const loremIpsum = require('lorem-ipsum');
 const years = ["2018", "2017", "2016",];
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",];
 const users = ["Duss", "Arthur", "Edward", "Diane", "Shi-Hao", "Rebecca", "Sam"];
+const pictureurls = [];
 
 const randomDate = function() {
 	var yearIndex = Math.floor(Math.random() * (years.length - 1));
