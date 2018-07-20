@@ -4,7 +4,7 @@
   "description": "Reviews module for AirCnB",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev-react": "webpack -d --watch",
     "start": "nodemon server/index.js",
     "eslint": "eslint ."
@@ -40,6 +40,7 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
+    "jest": "^23.4.1",
     "lorem-hipsum": "^0.1.7",
     "lorem-ipsum": "^1.0.5",
     "nodemon": "^1.18.3",
