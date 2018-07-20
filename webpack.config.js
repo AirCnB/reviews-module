@@ -1,10 +1,10 @@
-var path = require('path');
+const path = require('path');
 
 module.exports = {
   entry: './client/src/index.jsx',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public')
+    path: path.resolve(__dirname, 'public'),
   },
   module: {
     rules: [
@@ -14,9 +14,9 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env', 'react, airbnb']
-          }
-        }
+            presets: ['env', 'react, airbnb'],
+          },
+        },
       },
       {
         test: /\.css$/,
@@ -25,11 +25,11 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true
-            }
-          }
-        ]
-      }
-    ]
-  }
+              modules: true,
+            },
+          },
+        ],
+      },
+    ],
+  },
 };

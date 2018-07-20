@@ -21,67 +21,15 @@ npm install mongoose
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
 ```
-npm install
 npm init
-npm install webpack webpack-cli
-
-npm install nodemon --save-dev
-
-npm install -save-dev react react-dom
-
-npm install --save-dev css-loader
-npm install --save-dev style-loader
-
-npm install babel-loader babel-core babel-preset-env webpack --save-dev
-npm i --save-dev babel-preset-env
-
-npm install --save-dev eslint-config-airbnb
-npm i eslint-plugin-react@latest --save-dev
-also install everything else needed to install
-
-npm install lorem-hipsum --save-dev
-npm install lorem-ipsum --save-dev
-
-npm install --save-dev jest
-npm i babel-preset-airbnb
-
-npm install jest --save-dev
 ```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
 Tests are run and run with Jest
 ```
 npm run test
-```
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Test Test
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Test Test Test
 ```
 
 ## Deployment
@@ -97,17 +45,8 @@ Add additional notes about how to deploy this on a live system
 
 * **Diane Huang**
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
 ## Acknowledgments
 
 * Inspiration from AirBnB
 
-
-presets env react present
-axios
-body parser
-express
-mongodb
-mongoose
 
