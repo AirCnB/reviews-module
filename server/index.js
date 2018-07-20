@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express();
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
+const db = require('../database/index.js');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 
@@ -9,6 +11,8 @@ app.use(express.static('public'));
 app.use(function (req, res, next) {
   res.status(404).send("Sorry can't find that House")
 })
+
+db.addData();
 
 app.listen(3003, () => console.log('Reviews Module listening on port 3003!'))
 
