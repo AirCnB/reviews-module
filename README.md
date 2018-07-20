@@ -32,6 +32,13 @@ run it :
 
 npm install --save-dev eslint-config-airbnb
 npm i eslint-plugin-react@latest --save-dev
+/... and everything else error need to install
+
+
+
+npm install lorem-hipsum --save-dev
+npm install lorem-ipsum --save-dev
+
 
 presets env react present
 axios
