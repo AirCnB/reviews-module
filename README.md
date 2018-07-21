@@ -13,6 +13,7 @@ Install mongoose, mongoDB, express
 ```
 npm install express --save
 npm install body-parser --save
+npm install axios
 
 npm install mongoose
 	mongo --host 127.0.0.1:27017

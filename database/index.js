@@ -36,5 +36,10 @@ const addData = function () {
     }
   });
 };
+ 
+const returnReviews = function(id, callback) {
+  Review.find({roomId: id}).exec(callback);
+};
 
 module.exports.addData = addData;
+module.exports.returnReviews = returnReviews;
