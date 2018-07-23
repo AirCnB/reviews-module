@@ -1,5 +1,5 @@
-npm
-npm-debug.log
-node_modules
+npm/
+npm-debug.log/
+node_modules/
 
-dist
+public/bundle.js/
