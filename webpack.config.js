@@ -14,7 +14,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env', 'react, airbnb'],
+            presets: ['env', 'react', 'airbnb'],
           },
         },
       },

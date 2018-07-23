@@ -6,13 +6,13 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/aircnb/:id', express.static('public'));
+app.use('/listings/:id', express.static('public'));
 
 db.addData();
 
 app.listen(3003, () => console.log('Reviews Module listening on port 3003!'));
 
-app.get('/reviews/:id', (req, res) => {
+app.get('/:id/reviews', (req, res) => {
 	let id = parseInt(req.params.id);
 	db.returnReviews(id, (err, result) =>{
 		if(err) {
@@ -22,7 +22,7 @@ app.get('/reviews/:id', (req, res) => {
 	});
 });
 
-app.post('/reviews/:id', (req, res) => {
+app.post('/:id/reviews', (req, res) => {
   const houseId = req.param('houseId');
   res.send('Post received');
 });

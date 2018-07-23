@@ -13,11 +13,10 @@ class App extends React.Component {
 
   componentDidMount() {
   	const self = this;
-    let id = window.location.pathname.slice(8);
+    let id = window.location.pathname.slice(10);
     id = parseInt(id.substring(0, id.length));
-    console.log(id);
 
-    axios.get(`/reviews/${id}`)
+    axios.get(`/${id}/reviews`)
     .then(function (response) {
     	self.setState({
     		reviews: response.data,
