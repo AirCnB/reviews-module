@@ -72,20 +72,22 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className={styles.app}>
-				<div className={styles.total}>
+			<div className={styles.container}>
+				<div className={styles.row1}>
+					<div className={styles.total}> 
 					{this.state.reviews.length} Reviews
+					</div>
 					<Stars rating={this.state.totalRating}/>
 					<Search/>
 				</div>
-				<div>
+				<div className={styles.row2}>
 					<ReviewStats reviews={this.state.reviews}/>
 				</div>
-				<div>
+				<div className={styles.row3}>
 					<ReviewList reviews={this.state.reviews}/>
 					<Flag/>
 				</div>
-				<div>
+				<div className={styles.row4}>
 					<PageTabs/>
 				</div>
 			</div>

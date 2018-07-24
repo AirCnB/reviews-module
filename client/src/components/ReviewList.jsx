@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styles from './ReviewListStyles.css'
+import styles from './ReviewListStyles.css';
 
 class ReviewList extends React.Component {
 	constructor(props){
