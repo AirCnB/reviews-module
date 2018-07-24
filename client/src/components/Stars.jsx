@@ -56,6 +56,7 @@ class Stars extends React.Component {
 			return (
 					<div className="search">
 						<img src="fivestars.png" alt="no stars"/>
+
 					</div>
 				)
 		}
