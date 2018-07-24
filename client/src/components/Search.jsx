@@ -12,7 +12,7 @@ class Search extends React.Component {
 	render () {
 		return (
 			<div className="search">
-
+				<input placeholder="Search Reviews"/>
 			</div>
 		)
 	}

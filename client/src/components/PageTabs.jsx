@@ -12,7 +12,7 @@ class PageTabs extends React.Component {
 	render () {
 		return (
 			<div className="pagetabs">
-
+				PageTabs will go here
 			</div>
 		)
 	}

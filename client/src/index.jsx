@@ -35,17 +35,17 @@ class App extends React.Component {
 		// this.getTotalRating = this.getTotalRating.bind(this);
 	}
 
-  calculateRating (reviews) {
-  	var total;
+	
+  calculateAvgRating (reviews) {
+  	var total = 0;
   	var count = 0;
-  	console.log("reviews:", reviews.rating)
-  	for (var criteria in reviews.rating) {
-  		total += reviews.rating[criteria];
-  		count += 1;
-  		console.log(reviews.rating)
+  	for (var i = 0; i < reviews.length; i++) {
+	  	for (var criteria in reviews[i].rating) {
+	  		total += reviews[i].rating[criteria];
+	  		count += 1;	
+	  	}	
   	}
-  	
-  	return total/count;
+  	return Math.floor(total/count*100)/100;
   }
 
   componentDidMount() {
@@ -55,7 +55,7 @@ class App extends React.Component {
 
     axios.get(`/${id}/reviews`)
     .then(function (response) {
-    	var totalRating = self.calculateRating(response.data);
+    	var totalRating = self.calculateAvgRating(response.data);
     	self.setState({
     		reviews: response.data,
     		totalRating: totalRating,
@@ -71,12 +71,22 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="reviewapp">
 				<div className="totalreviews">
 					{this.state.reviews.length} Reviews
 					<Stars rating={this.state.totalRating}/>
+					<Search/>
 				</div>
-				<ReviewList reviews={this.state.reviews}/>
+				<div>
+					<ReviewStats reviews={this.state.reviews}/>
+				</div>
+				<div>
+					<ReviewList reviews={this.state.reviews}/>
+					<Flag/>
+				</div>
+				<div>
+					<PageTabs/>
+				</div>
 			</div>
 		)
 	}
