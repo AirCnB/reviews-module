@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import ReviewList from './components/ReviewList.jsx';
+import ReviewStats from './components/ReviewStats.jsx';
+import Search from './components/Search.jsx';
+import TotalReviews from './components/TotalReviews.jsx';
+import Flag from './components/Flag.jsx';
+import PageTabs from './components/PageTabs.jsx';
 
 class App extends React.Component {
 	constructor(props){
