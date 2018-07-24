@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class TotalReviews extends React.Component {
+class Stars extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
@@ -11,11 +11,12 @@ class TotalReviews extends React.Component {
 
 	render () {
 		return (
-			<div className="totalreviews">
-
+			<div className="search">
+				{this.props.rating} stars
+				
 			</div>
 		)
 	}
 }
 
-export default TotalReviews;
+export default Stars;

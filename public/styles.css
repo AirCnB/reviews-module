@@ -2,7 +2,14 @@
 body {
 	color: #484848;
 	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
 }
+
+
+.totalreviews {
+	font-size: 24px;
+}
+
 
 .review {
 	display: grid;

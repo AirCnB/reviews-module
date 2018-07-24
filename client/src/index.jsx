@@ -4,17 +4,36 @@ import axios from 'axios';
 import ReviewList from './components/ReviewList.jsx';
 import ReviewStats from './components/ReviewStats.jsx';
 import Search from './components/Search.jsx';
-import TotalReviews from './components/TotalReviews.jsx';
 import Flag from './components/Flag.jsx';
 import PageTabs from './components/PageTabs.jsx';
+import Stars from './components/Stars.jsx';
 
 class App extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			reviews: [{ text: "sample text" }],
+			reviews: 
+				[{
+				  roomId: 1,
+				  user: {
+				    name: 'name',
+				    picture: 'url', // url
+				  },
+				  text: 'text',
+				  rating: {
+				    accuracy: 4,
+				    communication: 5,
+				    cleanliness: 2,
+				    location: 5,
+				    checkin: 1,
+				    value: 5,
+				  },
+				  date: 'here',
+			}],
+			totalRating: 5,
 		}
 	}
+   
 
   componentDidMount() {
   	const self = this;
@@ -26,6 +45,8 @@ class App extends React.Component {
     	self.setState({
     		reviews: response.data,
     	});
+    	//self. other functions
+
 	  })
 	  .catch(function (error) {
 	    console.log(error);
@@ -35,6 +56,10 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
+				<div className="totalreviews">
+					{this.state.reviews.length} Reviews
+					<Stars rating={this.state.totalRating}/>
+				</div>
 				<ReviewList reviews={this.state.reviews}/>
 			</div>
 		)

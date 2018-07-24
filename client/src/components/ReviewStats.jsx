@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Stars from './Stars.jsx'
 
 class ReviewStats extends React.Component {
 	constructor(props){
@@ -12,7 +13,7 @@ class ReviewStats extends React.Component {
 	render () {
 		return (
 			<div className="reviewstats">
-
+			
 			</div>
 		)
 	}
