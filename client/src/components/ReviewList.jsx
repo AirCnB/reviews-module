@@ -15,7 +15,7 @@ class ReviewList extends React.Component {
 				return (
 					<div key={index} className="review">
 					<div className="userpic"> (add picture) </div>
-					<div className="username"> (username here) </div>
+					<div className="username"> {review.user.name} </div>
 					<div className="reviewcreated"> {review.date} </div>
 					<div className="reviewtext"> {review.text} </div>
 					</div>
