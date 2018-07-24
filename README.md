@@ -4,16 +4,18 @@ Reviews Module of AirCnB mocksite
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Npm run dev-react
+mongod
+mongo --host 127.0.0.1:27017
+npm run start
+
+in chrome browser: localhost:3003/listings/0
 
 ### Prerequisites
 
 Install mongoose, mongoDB, express
 
 ```
-npm install express --save
-npm install body-parser --save
-npm install axios
 
 npm install mongoose
 	mongo --host 127.0.0.1:27017
