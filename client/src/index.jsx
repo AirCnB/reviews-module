@@ -30,8 +30,6 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				Reviews App Renders correctly
-				
 				<ReviewList reviews={this.state.reviews}/>
 			</div>
 		)

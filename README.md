@@ -23,7 +23,8 @@ npm install mongoose
 ### Installing
 
 ```
-npm init
+npm install 
+
 ```
 
 ## Running the tests
