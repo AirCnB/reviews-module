@@ -7,6 +7,7 @@ import Search from './components/Search.jsx';
 import Flag from './components/Flag.jsx';
 import PageTabs from './components/PageTabs.jsx';
 import Stars from './components/Stars.jsx';
+import styles from './components/indexStyles.css';
 
 class App extends React.Component {
 	constructor(props){
@@ -71,8 +72,8 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className="reviewapp">
-				<div className="totalreviews">
+			<div className={styles.app}>
+				<div className={styles.total}>
 					{this.state.reviews.length} Reviews
 					<Stars rating={this.state.totalRating}/>
 					<Search/>

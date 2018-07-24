@@ -1,12 +1,12 @@
 
-body {
+.app {
 	color: #484848;
 	font-family: 'Roboto', sans-serif;
 	font-size: 12px;
 }
 
 
-.totalreviews {
+.total {
 	font-size: 24px;
 }
 
@@ -16,4 +16,3 @@ body {
 .star {
 	color: #008489;
 }
-

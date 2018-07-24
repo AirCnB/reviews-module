@@ -1,0 +1,39 @@
+
+.review {
+	display: grid;
+	grid-template-columns: 48px 516px 14px;
+	grid-template-rows: 21px auto 43px;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+
+}
+
+.userpic {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+
+}
+
+.username {
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.date {
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.text {
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row-start: row3-start;
+	grid-row-end: 4;
+
+}

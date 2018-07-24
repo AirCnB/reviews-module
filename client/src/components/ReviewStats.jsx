@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Stars from './Stars.jsx'
+import styles from './ReviewStatsStyles.css';
 
 class ReviewStats extends React.Component {
 	constructor(props){
@@ -22,7 +23,6 @@ class ReviewStats extends React.Component {
 	}
 
 	ComponentDidMount () {
-
 	}
 
 	render () {
