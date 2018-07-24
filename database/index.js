@@ -16,12 +16,12 @@ const reviewSchema = mongoose.Schema({
   },
   text: String,
   rating: {
-    accuracy: { type: Number, min: 0, max: 5 },
-    communication: { type: Number, min: 0, max: 5 },
-    cleanliness: { type: Number, min: 0, max: 5 },
-    location: { type: Number, min: 0, max: 5 },
-    checkin: { type: Number, min: 0, max: 5 },
-    value: { type: Number, min: 0, max: 5 },
+    accuracy: Number,
+    communication: Number,
+    cleanliness: Number,
+    location: Number,
+    checkin: Number,
+    value: Number,
   },
   date: String,
 });

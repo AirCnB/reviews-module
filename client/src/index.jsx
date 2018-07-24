@@ -32,8 +32,21 @@ class App extends React.Component {
 			}],
 			totalRating: 5,
 		}
+		// this.getTotalRating = this.getTotalRating.bind(this);
 	}
-   
+
+  calculateRating (reviews) {
+  	var total;
+  	var count = 0;
+  	console.log("reviews:", reviews.rating)
+  	for (var criteria in reviews.rating) {
+  		total += reviews.rating[criteria];
+  		count += 1;
+  		console.log(reviews.rating)
+  	}
+  	
+  	return total/count;
+  }
 
   componentDidMount() {
   	const self = this;
@@ -42,9 +55,12 @@ class App extends React.Component {
 
     axios.get(`/${id}/reviews`)
     .then(function (response) {
+    	var totalRating = self.calculateRating(response.data);
     	self.setState({
     		reviews: response.data,
+    		totalRating: totalRating,
     	});
+
     	//self. other functions
 
 	  })

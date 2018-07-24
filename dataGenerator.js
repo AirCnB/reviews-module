@@ -25,14 +25,14 @@ const createReview = function (roomId, counter) {
 		  paragraphUpperBound: 15,
 		  format: 'plain',
     }),
-    rating: [
-      { accuracy: { type: [Math.floor(Math.random() * 5)], min: 0, max: 5 } },
-      { communication: { type: [Math.floor(Math.random() * 5)], min: 0, max: 5 } },
-      { cleanliness: { type: [Math.floor(Math.random() * 5)], min: 0, max: 5 } },
-      { location: { type: [Math.floor(Math.random() * 5)], min: 0, max: 5 } },
-      { checkin: { type: [Math.floor(Math.random() * 5)], min: 0, max: 5 } },
-      { value: { type: [Math.floor(Math.random() * 5)], min: 0, max: 5 } },
-    ],
+    rating: {
+       accuracy: Math.floor(Math.random() * 5),
+       communication: Math.floor(Math.random() * 5),
+       cleanliness: Math.floor(Math.random() * 5),
+       location: Math.floor(Math.random() * 5),
+       checkin: Math.floor(Math.random() * 5),
+       value: Math.floor(Math.random() * 5),
+    },
     date: randomDate(),
   };
 };
