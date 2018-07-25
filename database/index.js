@@ -36,13 +36,13 @@ const addData = function () {
     }
   });
 };
- 
-const returnReviews = function(id, callback) {
-  Review.find({roomId: id}).exec(callback);
+
+const returnReviews = function (id, callback) {
+  Review.find({ roomId: id }).exec(callback);
 };
 
-const returnSearch = function(id, searchTerm, callback) {
-  Review.find({roomId: id, "text": {'$regex' : '.*' + searchTerm + '.*'}}).exec(callback);
+const returnSearch = function (id, searchTerm, callback) {
+  Review.find({ roomId: id, text: { $regex: `.*${searchTerm}.*` } }).exec(callback);
 };
 
 
