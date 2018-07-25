@@ -12,7 +12,7 @@ class ReviewList extends React.Component {
 	render() {
 		if (this.props.showSearch === false) {
 			return(
-				<div> 
+				<div className={styles.wrapper}> 
 				{this.props.reviews.map((review, index) => {
 					return (
 						<div key={index} className={styles.review}>
@@ -27,13 +27,18 @@ class ReviewList extends React.Component {
 			)
 		} else if (this.props.searchResults.length === 0) {
 			return(
-				<div> 
-					None of our guests have mentioned '{this.props.searchTerm}'
+				<div className={styles.noreviewswrapper}> 
+					<span className={styles.noreviewsfound}>
+						None of our guests have mentioned "<b>{this.props.searchTerm}</b>"
+					</span>
+					<span className={styles.goback}>
+						Back to all reviews
+					</span>
 				</div>
 			)
 		} else {
 			return(
-				<div> 
+				<div className={styles.wrapper}> 
 				{this.props.searchResults.map((review, index) => {
 					return (
 						<div key={index} className={styles.review}>
