@@ -26,13 +26,13 @@ app.post('/:id/reviews', (req, res) => {
   let id = parseInt(req.params.id);
   let searchTerm = req.body.searchTerm;
 
-//   db.returnSearch(id, searchTerm, (err, result) => {
-// 	if (err) {
-// 		console.log(err)
-// 	}
-// 	res.send(result)
-//   });
+  db.returnSearch(id, searchTerm, (err, result) => {
+	if (err) {
+		console.log(err)
+	}
+	res.send(result)
+  });
 
-  res.send("Post Received")
+
 
 });
