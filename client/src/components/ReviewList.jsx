@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styles from './ReviewListStyles.css';
+import PageTabs from './PageTabs.jsx';
+import Flag from './Flag.jsx';
 
 class ReviewList extends React.Component {
 	constructor(props) {
@@ -11,8 +13,8 @@ class ReviewList extends React.Component {
 		};
 		this.renderSearchHeader = this.renderSearchHeader.bind(this);
 		this.renderReviews = this.renderReviews.bind(this);
-
-	}
+  }
+  
 	renderSearchHeader (numReviewsFound) {
 		return (
 			<div className={styles.searchheaderwrapper}> 
@@ -47,7 +49,9 @@ class ReviewList extends React.Component {
 		if (this.props.showSearch === false) {
 			return(
 				<div>
-				  {this.renderReviews(this.props.reviews)}
+          {this.renderReviews(this.props.reviews)}
+          <PageTabs
+					/>
 				</div>
       )
 		} else if (this.props.searchResults.length === 0) {
@@ -61,6 +65,8 @@ class ReviewList extends React.Component {
 				<div>
           {this.renderSearchHeader(this.props.searchResults.length)}
           {this.renderReviews(this.props.searchResults)}
+          <PageTabs
+					/>
 				</div>
 			)
 		}

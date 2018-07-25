@@ -4,7 +4,7 @@
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 	font-size: 12px;
 
-	grid-template-rows: 100px 132px auto auto;
+	grid-template-rows: 100px 132px auto;
 }
 
 .row1 {
@@ -25,16 +25,4 @@
   border-bottom: 1px solid #484848
 }
 
-.row4 {
-  grid-row-start: 4;
-  grid-row-end: span 4;
-  border-bottom: 1px solid #484848
-}
 
-
-
-
-
-.star {
-	color: #008489;
-}
