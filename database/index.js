@@ -42,8 +42,9 @@ const returnReviews = function(id, callback) {
 };
 
 const returnSearch = function(id, searchTerm, callback) {
-  Review.find({roomId: id, "text": /Tote/}).exec(callback);
+  Review.find({roomId: id, "text": {'$regex' : '.*' + searchTerm + '.*'}}).exec(callback);
 };
+
 
 module.exports.addData = addData;
 module.exports.returnReviews = returnReviews;
