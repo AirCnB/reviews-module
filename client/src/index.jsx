@@ -33,10 +33,50 @@ class App extends React.Component {
 				  date: 'here',
 			}],
 			totalRating: 5,
-			searchresults: undefined,
+			searchResults: undefined, //array of reviews containing
+			showSearch: false,
+			searchTerm: undefined,
 		}
+		this.searchReviews = this.searchReviews.bind(this);
+		this.showAllReviews = this.showAllReviews.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+
 	}
 
+
+	handleChange (event) {
+    this.setState({
+			searchTerm: event.target.value 
+		});
+  }
+
+	searchReviews () {
+		let self = this;
+		let searchTerm = this.state.searchTerm;
+		axios.post(`/${id}/reviews`, {
+			searchterm: searchTerm,
+		})
+    .then(function (response) {
+			
+			let searchResults = response.data;
+			console.log("searchResults: ", searchResults)
+    	self.setState({
+				showSearch: true,
+    		searchResults: searchResults,
+    	});
+	  })
+	  .catch(function (error) {
+	    console.log(error);
+		});
+		event.preventDefault();
+	}
+
+	showAllReviews () {
+		this.setState({
+			showSearch: false,
+			searchResults: undefined,
+		})
+	}
 	
   calculateAvgRating (reviews) {
   	var total = 0;
@@ -72,13 +112,24 @@ class App extends React.Component {
 		return (
 			<div className={styles.container}>
 				<div className={styles.row1}>
-					<Header reviews={this.state.reviews} totalRating={this.state.totalRating}/>
+					<Header 
+						reviews={this.state.reviews} 
+						totalRating={this.state.totalRating}
+						handleChange={this.handleChange}
+						searchReviews={this.searchReviews}
+					/>
 				</div>
 				<div className={styles.row2}>
 					<ReviewStats reviews={this.state.reviews}/>
 				</div>
 				<div className={styles.row3}>
-					<ReviewList reviews={this.state.reviews}/>
+					<ReviewList 
+						reviews={this.state.reviews} 
+						searchResults={this.state.searchResults} 
+						showSearch={this.state.showSearch}
+						showAllReviews={this.showAllReviews}
+						
+					/>
 					<Flag/>
 				</div>
 				<div className={styles.row4}>
