@@ -13,9 +13,7 @@ class ReviewStats extends React.Component {
 			location: 5,
 			checkin: 5,
 			value: 5,
-
 		}
-		this.calculateRating = this.calculateRating.bind(this);
 	}
 
 	calculateRating (reviews, label) {
