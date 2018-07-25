@@ -4,10 +4,12 @@ Reviews Module of AirCnB mocksite
 
 ## Getting Started
 
+````
 Npm run dev-react
 mongod
 mongo --host 127.0.0.1:27017
 npm run start
+`````
 
 in chrome browser: localhost:3003/listings/0
 

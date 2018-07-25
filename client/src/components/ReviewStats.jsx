@@ -20,11 +20,9 @@ class ReviewStats extends React.Component {
 
 	calculateRating (reviews, label) {
 		let total = 0;
-		let count = 0;
 		for (var i = 0; i < reviews.length; i++) {
-				total += reviews[i].rating[label];
-				count += 1;
-		return total/count;
+			total += reviews[i].rating[label];			
+			return total/reviews.length;
 		}
 	}
 
