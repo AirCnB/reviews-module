@@ -10,20 +10,44 @@ class ReviewList extends React.Component {
 		};
 	}
 	render() {
-		return(
-			<div> 
-			{this.props.reviews.map((review, index) => {
-				return (
-					<div key={index} className={styles.review}>
-					<div className={styles.userpic}> (add picture) </div>
-					<div className={styles.username}> {review.user.name} </div>
-					<div className={styles.date}> {review.date} </div>
-					<div className={styles.text}> {review.text} </div>
-					</div>
-				);
-			})}	
-			</div>
-		)
+		if (this.props.showSearch === false) {
+			return(
+				<div> 
+				{this.props.reviews.map((review, index) => {
+					return (
+						<div key={index} className={styles.review}>
+						<div className={styles.userpic}> (add picture) </div>
+						<div className={styles.username}> {review.user.name} </div>
+						<div className={styles.date}> {review.date} </div>
+						<div className={styles.text}> {review.text} </div>
+						</div>
+					);
+				})}	
+				</div>
+			)
+		} else if (this.props.searchResults.length === 0) {
+			return(
+				<div> 
+					None of our guests have mentioned '{this.props.searchTerm}'
+				</div>
+			)
+		} else {
+			return(
+				<div> 
+				{this.props.searchResults.map((review, index) => {
+					return (
+						<div key={index} className={styles.review}>
+						<div className={styles.userpic}> (add picture) </div>
+						<div className={styles.username}> {review.user.name} </div>
+						<div className={styles.date}> {review.date} </div>
+						<div className={styles.text}> {review.text} </div>
+						</div>
+					);
+				})}	
+				</div>
+			)
+		}
+		
 	}
 }
 
