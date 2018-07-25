@@ -28,22 +28,20 @@ class ReviewStats extends React.Component {
 	render () {
 		return (
 			<div className={styles.wrapper}>
-				<div className="leftcolreviews">
 					<div className={styles.label1}> Accuracy </div>
 					<div className={styles.stars1}><Stars rating={this.state.accuracy}/> </div> 
 					<div className={styles.label2}> Communication </div>
 					<div className={styles.stars2}><Stars rating={this.state.communication}/></div> 
 					<div className={styles.label3}> Cleanliness </div>
 					<div className={styles.stars3}><Stars rating={this.state.cleanliness}/></div> 
-				</div>
-				<div className="rightcolreviews">
+				
 					<div className={styles.label4}> Location </div>
 					<div className={styles.stars4}><Stars rating={this.state.location}/></div> 
 					<div className={styles.label5}> Check-in </div>
 					<div className={styles.stars5}><Stars rating={this.state.checkin}/></div> 
 					<div className={styles.label6}> Value </div>
 					<div className={styles.stars6}> <Stars rating={this.state.value}/></div> 
-				</div>
+				
 			</div>
 		)
 	}

@@ -77,8 +77,9 @@ class App extends React.Component {
 					<div className={styles.total}> 
 					{this.state.reviews.length} Reviews
 					</div>
-					<Stars rating={this.state.totalRating}/>
-					<Search/>
+
+					<div className={styles.col2}> <Stars rating={this.state.totalRating}/> </div>
+					<div className={styles.col3}><Search/></div>
 				</div>
 				<div className={styles.row2}>
 					<ReviewStats reviews={this.state.reviews}/>
