@@ -63,11 +63,11 @@ class App extends React.Component {
 			
 			let searchResults = response.data;
 			console.log("searchResults: ", searchResults);
-			
-    	// self.setState({
-			// 	showSearch: true,
-    	// 	searchResults: searchResults,
-    	// });
+
+    	self.setState({
+				showSearch: true,
+    		searchResults: searchResults,
+    	});
 	  })
 	  .catch(function (error) {
 	    console.log(error);
