@@ -13,26 +13,23 @@ db.addData();
 app.listen(3003, () => console.log('Reviews Module listening on port 3003!'));
 
 app.get('/:id/reviews', (req, res) => {
-	let id = parseInt(req.params.id);
-	db.returnReviews(id, (err, result) =>{
-		if(err) {
-			console.log(err);
-		}
-		res.send(result);
-	});
+  const id = parseInt(req.params.id);
+  db.returnReviews(id, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send(result);
+  });
 });
 
 app.post('/:id/reviews', (req, res) => {
-  let id = parseInt(req.params.id);
-  let searchTerm = req.body.searchTerm;
+  const id = parseInt(req.params.id);
+  const searchTerm = req.body.searchTerm;
 
   db.returnSearch(id, searchTerm, (err, result) => {
-	if (err) {
-		console.log(err)
-	}
-	res.send(result)
+    if (err) {
+      console.log(err);
+    }
+    res.send(result);
   });
-
-
-
 });

@@ -26,12 +26,12 @@ const createReview = function (roomId, counter) {
 		  format: 'plain',
     }),
     rating: {
-       accuracy: Math.floor(Math.random() * 5),
-       communication: Math.floor(Math.random() * 5),
-       cleanliness: Math.floor(Math.random() * 5),
-       location: Math.floor(Math.random() * 5),
-       checkin: Math.floor(Math.random() * 5),
-       value: Math.floor(Math.random() * 5),
+      accuracy: Math.floor(Math.random() * 5),
+      communication: Math.floor(Math.random() * 5),
+      cleanliness: Math.floor(Math.random() * 5),
+      location: Math.floor(Math.random() * 5),
+      checkin: Math.floor(Math.random() * 5),
+      value: Math.floor(Math.random() * 5),
     },
     date: randomDate(),
   };
@@ -40,7 +40,7 @@ const createReview = function (roomId, counter) {
 const makeData = function () {
   const reviewsList = [];
   let counter = 0;
-  for (let i = 0; i < 100; i+= 1) {
+  for (let i = 0; i < 100; i += 1) {
     let repeat = Math.floor(Math.random() * 17);
     while (repeat > 0) {
       reviewsList.push(createReview(i, counter));
