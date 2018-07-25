@@ -33,8 +33,8 @@ class App extends React.Component {
 				  date: 'here',
 			}],
 			totalRating: 5,
+			searchresults: undefined,
 		}
-		// this.getTotalRating = this.getTotalRating.bind(this);
 	}
 
 	
@@ -62,9 +62,6 @@ class App extends React.Component {
     		reviews: response.data,
     		totalRating: totalRating,
     	});
-
-    	//self. other functions
-
 	  })
 	  .catch(function (error) {
 	    console.log(error);

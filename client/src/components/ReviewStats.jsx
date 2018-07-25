@@ -18,11 +18,33 @@ class ReviewStats extends React.Component {
 		this.calculateRating = this.calculateRating.bind(this);
 	}
 
-	calculateRating () {
-
+	calculateRating (reviews, label) {
+		let total = 0;
+		let count = 0;
+		for (var i = 0; i < reviews.length; i++) {
+				total += reviews[i].rating[label]
+				count += 1;
+		return total/count;
+		}
 	}
 
-	ComponentDidMount () {
+	componentDidMount () {
+		
+		let accuracy = this.calculateRating(this.props.reviews, "accuracy");
+		let communication = this.calculateRating(this.props.reviews, "communication");
+		let cleanliness = this.calculateRating(this.props.reviews, "cleanliness");
+		let location = this.calculateRating(this.props.reviews, "location");
+		let checkin = this.calculateRating(this.props.reviews, "checkin");
+		let value = this.calculateRating(this.props.reviews, "value");
+
+		this.setState({
+			accuracy: accuracy,
+			communication: communication,
+			cleanliness: cleanliness,
+			location: location,
+			checkin: checkin,
+			value: value,
+		});
 	}
 
 	render () {
