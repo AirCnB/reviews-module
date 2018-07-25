@@ -7,9 +7,11 @@ class ReviewList extends React.Component {
 		super(props);
 		this.state = {
 			pageNum: 1,
-			reviewsPerPage: 12,
+			reviewsPerPage: 7,
 		};
 		this.renderSearchHeader = this.renderSearchHeader.bind(this);
+		this.renderReviews = this.renderReviews.bind(this);
+
 	}
 	renderSearchHeader (numReviewsFound) {
 		return (
@@ -23,22 +25,31 @@ class ReviewList extends React.Component {
 			</div>
 		)
 	}
+
+	renderReviews (reviews) {
+		return(
+			<div className={styles.wrapper}> 
+			{reviews.map((review, index) => {
+				return (
+					<div key={index} className={styles.review}>
+					<div className={styles.userpic}> (add picture) </div>
+					<div className={styles.username}> {review.user.name} </div>
+					<div className={styles.date}> {review.date} </div>
+					<div className={styles.text}> {review.text} </div>
+					</div>
+				);
+			})}	
+			</div>
+		)
+	}
+
 	render() {
 		if (this.props.showSearch === false) {
 			return(
-				<div className={styles.wrapper}> 
-				{this.props.reviews.map((review, index) => {
-					return (
-						<div key={index} className={styles.review}>
-						<div className={styles.userpic}> (add picture) </div>
-						<div className={styles.username}> {review.user.name} </div>
-						<div className={styles.date}> {review.date} </div>
-						<div className={styles.text}> {review.text} </div>
-						</div>
-					);
-				})}	
+				<div>
+				  {this.renderReviews(this.props.reviews)}
 				</div>
-			)
+      )
 		} else if (this.props.searchResults.length === 0) {
 			return(
 				<div>
@@ -48,21 +59,11 @@ class ReviewList extends React.Component {
 		} else {
 			return(
 				<div>
-					{this.renderSearchHeader(this.props.searchResults.length)}
-				{this.props.searchResults.map((review, index) => {
-					return (
-						<div key={index} className={styles.review}>
-						<div className={styles.userpic}> (add picture) </div>
-						<div className={styles.username}> {review.user.name} </div>
-						<div className={styles.date}> {review.date} </div>
-						<div className={styles.text}> {review.text} </div>
-						</div>
-					);
-				})}	
+          {this.renderSearchHeader(this.props.searchResults.length)}
+          {this.renderReviews(this.props.searchResults)}
 				</div>
 			)
 		}
-		
 	}
 }
 
