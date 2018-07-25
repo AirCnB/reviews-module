@@ -9,10 +9,13 @@ class ReviewList extends React.Component {
 		super(props);
 		this.state = {
 			pageNum: 1,
-			reviewsPerPage: 7,
+      reviewsPerPage: 7,
+      displayedReviews: [],
 		};
 		this.renderSearchHeader = this.renderSearchHeader.bind(this);
-		this.renderReviews = this.renderReviews.bind(this);
+    this.renderReviews = this.renderReviews.bind(this);
+    this.changePage = this.changePage.bind(this);
+    this.renderPageTabs = this.renderPageTabs.bind(this);
   }
   
 	renderSearchHeader (numReviewsFound) {
@@ -43,15 +46,49 @@ class ReviewList extends React.Component {
 			})}	
 			</div>
 		)
-	}
+  }
+
+  changeReviewsToDisplay (totalReviews, page num, reviewsperpage) {
+    let displayedReviews = [];
+    let total = totalReviews.length/length;
+
+    let startIndex = total/reviewsPerPage*(pageNum - 1)
+    let endIndex = total/reviewsPerPage *(pageNum)
+
+    for (var i = startIndex; i < endIndex; i++) {
+      if (totalReviews[i] !== undefined) {
+        displayedReviews.push(totalReviews[i]);
+      }
+      
+    }
+    return displayedReviews
+  }
+
+  changePage (pageNum) {
+    let displayedReviews = changeReviewsToDisplay();
+
+    this.setState({
+      pageNum: pageNum,
+      displayedReviews: displayedReviews,
+    });
+  }
+
+  renderPageTabs () {
+    return (
+      <PageTabs
+        pageNum={this.state.pageNum}
+        reviewsPerPage={this.state.reviewsPerPage}
+        changePage={this.changePage}
+      />
+    )
+  }
 
 	render() {
 		if (this.props.showSearch === false) {
 			return(
 				<div>
           {this.renderReviews(this.props.reviews)}
-          <PageTabs
-					/>
+          {this.renderPageTabs()}
 				</div>
       )
 		} else if (this.props.searchResults.length === 0) {
@@ -65,13 +102,11 @@ class ReviewList extends React.Component {
 				<div>
           {this.renderSearchHeader(this.props.searchResults.length)}
           {this.renderReviews(this.props.searchResults)}
-          <PageTabs
-					/>
+          {this.renderPageTabs()}
 				</div>
 			)
 		}
 	}
 }
-
 
 export default ReviewList;
