@@ -34,12 +34,12 @@ class ReviewStats extends React.Component {
 		let checkin = this.calculateRating(this.props.reviews, "checkin");
 		let value = this.calculateRating(this.props.reviews, "value");
 		this.setState({
-			accuracy: accuracy,
-			communication: communication,
-			cleanliness: cleanliness,
-			location: location,
-			checkin: checkin,
-			value: value,
+			accuracy,
+			communication,
+			cleanliness,
+			location,
+			checkin,
+			value,
 		});
 	}
 
