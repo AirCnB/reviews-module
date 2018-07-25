@@ -12,7 +12,15 @@ class Search extends React.Component {
 	render () {
 		return (
 			<div className="search">
-				<input placeholder="Search Reviews"/>
+				<input 
+					placeholder="Search Reviews" 
+					onChange={this.props.handleChange} 
+					onKeyPress={(event) => {
+						if (event.key === 'Enter') {
+						  this.props.searchReviews();
+						}
+					}}
+				/>
 			</div>
 		)
 	}
