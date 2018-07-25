@@ -3,10 +3,6 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import ReviewList from './components/ReviewList.jsx';
 import ReviewStats from './components/ReviewStats.jsx';
-import Search from './components/Search.jsx';
-import Flag from './components/Flag.jsx';
-import PageTabs from './components/PageTabs.jsx';
-import Stars from './components/Stars.jsx';
 import Header from './components/header.jsx';
 import styles from './components/indexStyles.css';
 
@@ -131,11 +127,8 @@ class App extends React.Component {
 						showAllReviews={this.showAllReviews}
 						searchTerm={this.state.searchTerm}
 					/>
-					<Flag/>
 				</div>
 				<div className={styles.row4}>
-					<PageTabs
-					/>
 				</div>
 			</div>
 		)
