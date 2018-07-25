@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import styles from './headerStyles.css';
 import Stars from './Stars.jsx';
 import Search from './Search.jsx';
