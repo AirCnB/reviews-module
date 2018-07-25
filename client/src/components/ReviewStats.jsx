@@ -7,7 +7,7 @@ class ReviewStats extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			accuracy: 5,
+		    accuracy: 5,
 			communication: 5,
 			cleanliness: 5,
 			location: 5,

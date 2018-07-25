@@ -29,7 +29,7 @@ const reviewSchema = mongoose.Schema({
 const Review = mongoose.model('Review', reviewSchema);
 const data = dataGenerator.makeData();
 
-const addData = function () {
+const addData = () => {
   Review.insertMany(data, (err) => {
     if (err) {
       console.log(err);
@@ -37,11 +37,11 @@ const addData = function () {
   });
 };
 
-const returnReviews = function (id, callback) {
+const returnReviews = (id, callback) => {
   Review.find({ roomId: id }).exec(callback);
 };
 
-const returnSearch = function (id, searchTerm, callback) {
+const returnSearch = (id, searchTerm, callback) => {
   Review.find({ roomId: id, text: { $regex: `.*${searchTerm}.*` } }).exec(callback);
 };
 
