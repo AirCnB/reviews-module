@@ -19,7 +19,7 @@ class App extends React.Component {
 				  roomId: 1,
 				  user: {
 				    name: 'name',
-				    picture: 'url', // url
+				    picture: 'url', 
 				  },
 				  text: 'text',
 				  rating: {
@@ -33,7 +33,7 @@ class App extends React.Component {
 				  date: 'here',
 			}],
 			totalRating: 5,
-			searchResults: [], //array of reviews containing
+			searchResults: [],
 			showSearch: false,
 			searchTerm: undefined,
 		}
@@ -60,9 +60,10 @@ class App extends React.Component {
 		})
     .then(function (response) {
 		let searchResults = response.data;
+		console.log("searchResults", searchResults);
     	self.setState({
 			showSearch: true,
-    		// searchResults: searchResults,
+    		searchResults: searchResults,
     	});
 	})
 	.catch(function (error) {
