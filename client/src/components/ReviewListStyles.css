@@ -1,10 +1,10 @@
-.noreviewswrapper {
+.searchheaderwrapper {
 	padding: 14px;
 	display: grid;
 	grid-template-columns: 80% 20%;
 }
 
-.noreviewsfound {
+.header {
 	grid-column: 1 / 2;
 	align-self: center;
 	justify-self: center;

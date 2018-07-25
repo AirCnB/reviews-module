@@ -27,8 +27,8 @@ class ReviewList extends React.Component {
 			)
 		} else if (this.props.searchResults.length === 0) {
 			return(
-				<div className={styles.noreviewswrapper}> 
-					<span className={styles.noreviewsfound}>
+				<div className={styles.searchheaderwrapper}> 
+					<span className={styles.header}>
 						None of our guests have mentioned "<b>{this.props.searchTerm}</b>"
 					</span>
 					<span 
@@ -42,6 +42,17 @@ class ReviewList extends React.Component {
 		} else {
 			return(
 				<div className={styles.wrapper}> 
+				<div className={styles.searchheaderwrapper}> 
+					<span className={styles.header}>
+						{this.props.searchResults.length} guests have mentioned "<b>{this.props.searchTerm}</b>"
+					</span>
+					<span 
+						className={styles.goback}
+						onClick={() => this.props.showAllReviews()}
+					>
+						Back to all reviews
+					</span>
+				</div>
 				{this.props.searchResults.map((review, index) => {
 					return (
 						<div key={index} className={styles.review}>
