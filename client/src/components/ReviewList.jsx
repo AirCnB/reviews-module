@@ -8,7 +8,7 @@ class ReviewList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			pageNum: 179,
+			pageNum: 1,
       reviewsPerPage: 7,
       displayedReviews: [],
 		};
@@ -34,8 +34,6 @@ class ReviewList extends React.Component {
 
 	renderReviews (reviews) {
     let displayedReviews = this.getReviewsToDisplay(reviews);
-    console.log(displayedReviews);
-
 		return(
 			<div className={styles.wrapper}> 
 			{displayedReviews.map((review, index) => {
@@ -57,15 +55,8 @@ class ReviewList extends React.Component {
     let pageNum = this.state.pageNum;
     let reviewsPerPage = this.state.reviewsPerPage;
     let displayedReviews = [];
-
     let startIndex = reviewsPerPage * (pageNum - 1);
     let endIndex = (reviewsPerPage * pageNum) - 1;
-
-    console.log("rperpage", reviewsPerPage);
-    console.log("startIndex", startIndex);
-
-    console.log("endIndex", endIndex);
-
     for (var i = startIndex; i <= endIndex; i++) {
       if (totalReviews[i] !== undefined) {
         displayedReviews.push(totalReviews[i]);
