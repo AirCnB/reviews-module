@@ -23,6 +23,16 @@ app.get('/:id/reviews', (req, res) => {
 });
 
 app.post('/:id/reviews', (req, res) => {
-  const houseId = req.param('houseId');
-  res.send('Post received');
+  let id = parseInt(req.params.id);
+  let searchTerm = req.body.searchTerm;
+
+//   db.returnSearch(id, searchTerm, (err, result) => {
+// 	if (err) {
+// 		console.log(err)
+// 	}
+// 	res.send(result)
+//   });
+
+  res.send("Post Received")
+
 });

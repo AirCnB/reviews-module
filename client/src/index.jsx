@@ -53,17 +53,21 @@ class App extends React.Component {
 	searchReviews () {
 		let self = this;
 		let searchTerm = this.state.searchTerm;
+		let id = window.location.pathname.slice(10);
+		id = parseInt(id.substring(0, id.length));
+
 		axios.post(`/${id}/reviews`, {
-			searchterm: searchTerm,
+			searchTerm: searchTerm,
 		})
     .then(function (response) {
 			
 			let searchResults = response.data;
-			console.log("searchResults: ", searchResults)
-    	self.setState({
-				showSearch: true,
-    		searchResults: searchResults,
-    	});
+			console.log("searchResults: ", searchResults);
+			
+    	// self.setState({
+			// 	showSearch: true,
+    	// 	searchResults: searchResults,
+    	// });
 	  })
 	  .catch(function (error) {
 	    console.log(error);
