@@ -1,26 +1,13 @@
 .searchContainer {
     display: grid;
-    grid-template-columns:1.5rem 4fr 1fr;
-    width:300px;
-    border: 1px solid #ccc;
+    grid-template-columns: 1.5fr 4fr 1fr;
+    width: 187px;
+    border: 1px solid;
     border-radius: 5px;
-    overflow: hidden;
-  }
-  
-  .searchContainer:focus-within i {
-    display: none;
-  }
-  
-  .searchContainer:focus-within .searchBox{
-    grid-column:1/4;
-  }
-  
-  .searchContainer:focus-within .searchBox::placeholder {
-    color:transparent;
   }
   
   .searchIcon {
-    padding: 0.5rem;
+    padding: 0.5fr;
     grid-row:1;
     grid-column:1/2;
     z-index:2
@@ -28,7 +15,8 @@
   
   .searchBox {
     border: 0;
-    padding: 0.5rem;
+    border-color: #767676;
+    padding: 0.5fr;
     grid-column:2/4;
     grid-row:1;
     outline:none;
@@ -37,7 +25,7 @@
   .clearSearch {
     border: 0;
     color: #767676;
-    padding: 0.5rem;
+    padding: 0.5fr;
     border-radius: 0;
     grid-column:4/5;
     grid-row:1;
