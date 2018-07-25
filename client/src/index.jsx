@@ -33,7 +33,7 @@ class App extends React.Component {
 				  date: 'here',
 			}],
 			totalRating: 5,
-			searchResults: undefined, //array of reviews containing
+			searchResults: [], //array of reviews containing
 			showSearch: false,
 			searchTerm: undefined,
 		}
@@ -43,12 +43,11 @@ class App extends React.Component {
 
 	}
 
-
 	handleChange (event) {
     this.setState({
 			searchTerm: event.target.value 
 		});
-  }
+	}
 
 	searchReviews () {
 		let self = this;
@@ -60,25 +59,22 @@ class App extends React.Component {
 			searchTerm: searchTerm,
 		})
     .then(function (response) {
-			
-			let searchResults = response.data;
-			console.log("searchResults: ", searchResults);
-
+		let searchResults = response.data;
     	self.setState({
-				showSearch: true,
-    		searchResults: searchResults,
+			showSearch: true,
+    		// searchResults: searchResults,
     	});
-	  })
-	  .catch(function (error) {
+	})
+	.catch(function (error) {
 	    console.log(error);
 		});
-		event.preventDefault();
+	event.preventDefault();
 	}
 
 	showAllReviews () {
 		this.setState({
 			showSearch: false,
-			searchResults: undefined,
+			searchResults: [],
 		})
 	}
 	
@@ -132,7 +128,7 @@ class App extends React.Component {
 						searchResults={this.state.searchResults} 
 						showSearch={this.state.showSearch}
 						showAllReviews={this.showAllReviews}
-						
+						searchTerm={this.state.searchTerm}
 					/>
 					<Flag/>
 				</div>
