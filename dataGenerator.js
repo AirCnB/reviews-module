@@ -11,7 +11,7 @@ const randomDate = function () {
   return `${years[yearIndex]} ${months[monthsIndex]}`;
 };
 
-const createReview = function (roomId, counter) {
+const createReview = (roomId, counter) => {
   return {
     id: counter,
     roomId,
@@ -21,8 +21,8 @@ const createReview = function (roomId, counter) {
     },
     text: loremHipsum({
       count: Math.floor(Math.random() * 4),
-		  paragraphLowerBound: 3,
-		  paragraphUpperBound: 15,
+      paragraphLowerBound: 3,
+      paragraphUpperBound: 15,
 		  format: 'plain',
     }),
     rating: {
@@ -37,7 +37,7 @@ const createReview = function (roomId, counter) {
   };
 };
 
-const makeData = function () {
+const makeData = () => {
   const reviewsList = [];
   let counter = 0;
   for (let i = 0; i < 100; i += 1) {

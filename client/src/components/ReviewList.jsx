@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import styles from './ReviewListStyles.css';
 
 class ReviewList extends React.Component {
-	constructor(props){
+	constructor(props) {
 		super(props);
 		this.state = {
 			
 		};
 	}
+	
 	render() {
 		if (this.props.showSearch === false) {
 			return(

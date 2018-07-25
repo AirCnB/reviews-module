@@ -12,7 +12,6 @@ class Search extends React.Component {
 	}
 	
 	clearSearch () {
-		console.log("clicked clearSearch" );
 		this.setState({
 			placeholder: "Search Reviews",
 		});
