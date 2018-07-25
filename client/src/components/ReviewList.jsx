@@ -31,7 +31,10 @@ class ReviewList extends React.Component {
 					<span className={styles.noreviewsfound}>
 						None of our guests have mentioned "<b>{this.props.searchTerm}</b>"
 					</span>
-					<span className={styles.goback}>
+					<span 
+						className={styles.goback}
+						onClick={() => this.props.showAllReviews()}
+					>
 						Back to all reviews
 					</span>
 				</div>
