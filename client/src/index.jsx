@@ -60,7 +60,6 @@ class App extends React.Component {
 		})
     .then(function (response) {
 		let searchResults = response.data;
-		console.log("searchResults", searchResults);
     	self.setState({
 			showSearch: true,
     		searchResults: searchResults,
