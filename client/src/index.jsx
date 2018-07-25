@@ -36,6 +36,7 @@ class App extends React.Component {
 			searchResults: [],
 			showSearch: false,
 			searchTerm: undefined,
+
 		}
 		this.searchReviews = this.searchReviews.bind(this);
 		this.showAllReviews = this.showAllReviews.bind(this);
@@ -133,7 +134,8 @@ class App extends React.Component {
 					<Flag/>
 				</div>
 				<div className={styles.row4}>
-					<PageTabs/>
+					<PageTabs
+					/>
 				</div>
 			</div>
 		)

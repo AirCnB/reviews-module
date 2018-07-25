@@ -6,7 +6,8 @@ class ReviewList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			
+			pageNum: 1,
+			reviewsPerPage: 12,
 		};
 	}
 	
@@ -70,5 +71,6 @@ class ReviewList extends React.Component {
 		
 	}
 }
+
 
 export default ReviewList;
