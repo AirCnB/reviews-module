@@ -7,6 +7,7 @@ import Search from './components/Search.jsx';
 import Flag from './components/Flag.jsx';
 import PageTabs from './components/PageTabs.jsx';
 import Stars from './components/Stars.jsx';
+import Header from './components/header.jsx';
 import styles from './components/indexStyles.css';
 
 class App extends React.Component {
@@ -74,12 +75,7 @@ class App extends React.Component {
 		return (
 			<div className={styles.container}>
 				<div className={styles.row1}>
-					<div className={styles.total}> 
-					{this.state.reviews.length} Reviews
-					</div>
-
-					<div className={styles.col2}> <Stars rating={this.state.totalRating}/> </div>
-					<div className={styles.col3}><Search/></div>
+					<Header reviews={this.state.reviews} totalRating={this.state.totalRating}/>
 				</div>
 				<div className={styles.row2}>
 					<ReviewStats reviews={this.state.reviews}/>
