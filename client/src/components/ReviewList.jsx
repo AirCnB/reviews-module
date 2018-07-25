@@ -8,12 +8,13 @@ class ReviewList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			pageNum: 1,
+			pageNum: 179,
       reviewsPerPage: 7,
       displayedReviews: [],
 		};
 		this.renderSearchHeader = this.renderSearchHeader.bind(this);
     this.renderReviews = this.renderReviews.bind(this);
+    this.getReviewsToDisplay = this.getReviewsToDisplay.bind(this);
     this.changePage = this.changePage.bind(this);
     this.renderPageTabs = this.renderPageTabs.bind(this);
   }
@@ -32,9 +33,12 @@ class ReviewList extends React.Component {
 	}
 
 	renderReviews (reviews) {
+    let displayedReviews = this.getReviewsToDisplay(reviews);
+    console.log(displayedReviews);
+
 		return(
 			<div className={styles.wrapper}> 
-			{reviews.map((review, index) => {
+			{displayedReviews.map((review, index) => {
 				return (
 					<div key={index} className={styles.review}>
 					<div className={styles.userpic}> (add picture) </div>
@@ -44,41 +48,46 @@ class ReviewList extends React.Component {
 					</div>
 				);
 			})}	
+      {this.renderPageTabs(reviews)}
 			</div>
 		)
   }
 
-  changeReviewsToDisplay (totalReviews, page num, reviewsperpage) {
+  getReviewsToDisplay (totalReviews) {
+    let pageNum = this.state.pageNum;
+    let reviewsPerPage = this.state.reviewsPerPage;
     let displayedReviews = [];
-    let total = totalReviews.length/length;
 
-    let startIndex = total/reviewsPerPage*(pageNum - 1)
-    let endIndex = total/reviewsPerPage *(pageNum)
+    let startIndex = reviewsPerPage * (pageNum - 1);
+    let endIndex = (reviewsPerPage * pageNum) - 1;
 
-    for (var i = startIndex; i < endIndex; i++) {
+    console.log("rperpage", reviewsPerPage);
+    console.log("startIndex", startIndex);
+
+    console.log("endIndex", endIndex);
+
+    for (var i = startIndex; i <= endIndex; i++) {
       if (totalReviews[i] !== undefined) {
         displayedReviews.push(totalReviews[i]);
       }
-      
     }
-    return displayedReviews
+    return displayedReviews;
   }
 
   changePage (pageNum) {
-    let displayedReviews = changeReviewsToDisplay();
 
     this.setState({
       pageNum: pageNum,
-      displayedReviews: displayedReviews,
     });
   }
 
-  renderPageTabs () {
+  renderPageTabs (totalReviews) {
     return (
       <PageTabs
         pageNum={this.state.pageNum}
         reviewsPerPage={this.state.reviewsPerPage}
         changePage={this.changePage}
+        totalReviews={totalReviews}
       />
     )
   }
@@ -88,7 +97,6 @@ class ReviewList extends React.Component {
 			return(
 				<div>
           {this.renderReviews(this.props.reviews)}
-          {this.renderPageTabs()}
 				</div>
       )
 		} else if (this.props.searchResults.length === 0) {
@@ -102,7 +110,7 @@ class ReviewList extends React.Component {
 				<div>
           {this.renderSearchHeader(this.props.searchResults.length)}
           {this.renderReviews(this.props.searchResults)}
-          {this.renderPageTabs()}
+          
 				</div>
 			)
 		}
