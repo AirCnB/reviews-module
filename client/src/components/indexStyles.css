@@ -4,14 +4,17 @@
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
   font-size: 16px;
   line-height: 22px;
-
+  width: 595px;
+  height: 5670px;
+  
 	grid-template-rows: 100px 132px auto;
 }
 
 .row1 {
 		grid-row-start: 1;
   	grid-row-end: span 1;
-  	border-bottom: 1px solid #484848;
+    border-bottom: 1px solid #484848;
+    
 }
 
 .row2 {
