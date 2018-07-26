@@ -1,7 +1,7 @@
 .wrapper {
 	display: grid;
 	grid-template-columns: 50% 50%;
-	height: 208px;
+	height: 104px;
 	width: 610px;
 	align-self: center;
 	
@@ -18,8 +18,8 @@
 
 .rightCol {
 	grid-column: 2 / 3;
-	height: 289px;
-	width: 92px;
+	height: 92px;
+	width: 289px;
 	padding: 8px;
 	display: grid;
 	grid-template-rows: 1fr 1fr 1fr;
@@ -47,11 +47,10 @@
 	grid-column: 1 / 2;
 	padding: 8px;
 	justify-self: start;
-	height: 16px;
 }
 .stars {
 	grid-column: 2 / 3;
 	padding: 8px;
 	justify-self: end;
-	height: 16px;
+	
 }	
