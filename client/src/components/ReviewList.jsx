@@ -23,7 +23,7 @@ class ReviewList extends React.Component {
 	renderSearchHeader (numReviewsFound) {
 		return (
 			<div className={styles.searchheaderwrapper}> 
-				<span className={styles.header}>
+				<span className={styles.topRow}>
 					{numReviewsFound} of our guests have mentioned "<b>{this.props.searchTerm}</b>" 
 				</span>
 				<span className={styles.goback} onClick={this.props.showAllReviews}>

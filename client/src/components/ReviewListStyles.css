@@ -4,7 +4,7 @@
 	grid-template-columns: 80% 20%;
 }
 
-.header {
+.topRow {
 	grid-column: 1 / 2;
 	align-self: center;
 	justify-self: center;
@@ -51,10 +51,12 @@
 	grid-column-end: 3;
 	grid-row-start: 2;
 	grid-row-end: 3;
+	font-size: 14px;
+	line-height: 18px;
 }
 
 .flag {
-	
+
 }
 
 .text {
