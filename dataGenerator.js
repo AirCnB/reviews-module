@@ -5,14 +5,14 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 const users = ['Duss', 'Arthur', 'Edward', 'Diane', 'Shi-Hao', 'Rebecca', 'Sam'];
 const pictureurls = [];
 
-const randomDate = function () {
+const randomDate = () => {
   const yearIndex = Math.floor(Math.random() * (years.length - 1));
   const monthsIndex = Math.floor(Math.random() * (months.length - 1));
   return `${years[yearIndex]} ${months[monthsIndex]}`;
 };
 
 const createReview = (roomId, counter) => {
-  return {
+    return {
     id: counter,
     roomId,
     user: {
@@ -23,7 +23,7 @@ const createReview = (roomId, counter) => {
       count: Math.floor(Math.random() * 4),
       paragraphLowerBound: 3,
       paragraphUpperBound: 15,
-		  format: 'plain',
+      format: 'plain',
     }),
     rating: {
       accuracy: Math.floor(Math.random() * 5),
