@@ -15,7 +15,9 @@ class ReviewList extends React.Component {
 		this.renderSearchHeader = this.renderSearchHeader.bind(this);
     this.renderReviews = this.renderReviews.bind(this);
     this.getReviewsToDisplay = this.getReviewsToDisplay.bind(this);
-    this.changePage = this.changePage.bind(this);
+		this.changePage = this.changePage.bind(this);
+		this.goNextPage = this.goNextPage.bind(this);
+		this.goPrevPage = this.goPrevPage.bind(this);
     this.renderPageTabs = this.renderPageTabs.bind(this);
   }
   
@@ -70,7 +72,23 @@ class ReviewList extends React.Component {
     this.setState({
       pageNum: pageNum,
     });
-  }
+	}
+	
+	goPrevPage () {
+		if (this.state.pageNum !== 1) {
+			this.setState({
+				pageNum: this.state.pageNum - 1
+			});
+		}
+	}
+
+	goNextPage (totalReviews) {
+		if (this.state.pageNum !== Math.ceil(totalReviews.length/this.state.reviewsPerPage)) {
+			this.setState({
+				pageNum: this.state.pageNum + 1
+			});
+		}
+	}
 
   renderPageTabs (totalReviews) {
     return (
@@ -80,6 +98,8 @@ class ReviewList extends React.Component {
         changePage={this.changePage}
 				totalReviews={totalReviews}
 				totalTabs={Math.ceil(totalReviews.length/this.state.reviewsPerPage)}
+				goNextPage={this.goNextPage}
+				goPrevPage={this.goPrevPage}
       />
     )
   }
