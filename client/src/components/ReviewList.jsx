@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styles from './ReviewListStyles.css';
 import PageTabs from './PageTabs.jsx';
-import Flag from './Flag.jsx';
 
 class ReviewList extends React.Component {
 	constructor(props) {
@@ -44,6 +43,7 @@ class ReviewList extends React.Component {
 					<div className={styles.userpic}> (add picture) </div>
 					<div className={styles.username}> {review.user.name} </div>
 					<div className={styles.date}> {review.date} </div>
+					<div className={styles.flag}> <img src="flag.gif"/> </div>
 					<div className={styles.text}> {review.text} </div>
 					</div>
 				);

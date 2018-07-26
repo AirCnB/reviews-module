@@ -1,20 +1,28 @@
 .searchContainer {
     display: grid;
-    grid-template-columns: 1.5fr 4fr 1fr;
+    grid-template-columns: 1.52em 4fr 1fr;
     width: 187px;
     height: 30px;
     border: 1px solid;
-    border-radius: 5px;
+    border-radius: 3px;
     font-size: 16px;
   }
   
   .searchIcon {
     padding: 0.5fr;
     grid-row:1;
-    grid-column:1/2;
-    z-index:2
+    height: 14px;
+    height: 14px;
+    grid-column:1 / 2;
+    z-index:2;
+    justify-self: center;
+    align-self: center;
   }
   
+  ::-webkit-input-placeholder { 
+    line-height: 18px;
+  }
+
   .searchBox {
     border: 0;
     border-color: #767676;
