@@ -65,8 +65,8 @@ class ReviewList extends React.Component {
     return displayedReviews;
   }
 
-  changePage (pageNum) {
-
+  changePage (event) {
+		let pageNum = parseInt(event.target.innerHTML);
     this.setState({
       pageNum: pageNum,
     });
@@ -78,7 +78,8 @@ class ReviewList extends React.Component {
         pageNum={this.state.pageNum}
         reviewsPerPage={this.state.reviewsPerPage}
         changePage={this.changePage}
-        totalReviews={totalReviews}
+				totalReviews={totalReviews}
+				totalTabs={Math.ceil(totalReviews.length/this.state.reviewsPerPage)}
       />
     )
   }

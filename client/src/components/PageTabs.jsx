@@ -7,24 +7,31 @@ class PageTabs extends React.Component {
 		super(props);
 		this.state = {
 			totalTabs: 1,
-		}
-	}
-
-	calculateTabs () {
-		let totalTabs = Math.ceil(this.props.totalReviews/this.props.pageNum);
-		this.setState({
-			totalTabs: totalTabs,
-		})
+		};
+		this.displayTab = this.displayTab.bind(this);
 	}
 
 	componentDidMount () {
-		this.calculateTabs();
+
+	}
+
+	displayTab (tabNum) {
+		return (
+			<div className={styles.tab}>
+				<span onClick={this.props.changePage}> {tabNum} </span>
+			</div>
+		);
 	}
 
 	render () {
+		console.log(this.props.pageNum);
+		console.log(this.props.totalTabs);
+
 		return (
 			<div className="pagetabs">
-				Imagine {this.state.totalTabs} tabs are here
+				Imagine {this.props.totalTabs} tabs are here
+				{this.displayTab(2)}
+				{this.displayTab(this.props.totalTabs)}
 			</div>
 		)
 	}
