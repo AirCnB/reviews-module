@@ -1,23 +1,40 @@
 .wrapper {
   display: grid;
-  grid-template-columns: 25% 30% 45%;
+  grid-template-columns: auto auto;
   align-items: center;
   font-size: 24px;
-  line-height: 30px;
+  
+}
+.leftcol{
+  width: 407px;
+  grid-column: 1 / span 1;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.rightcol {
+  width: 203px;
+  grid-column: 2 / span 1;
 }
 
 .total {
   font-size: 24px;
   font-weight: bold;
   grid-column: 1 / span 1;
+ 
 }
 
-.col2 {
+.starsRating {
   grid-column: 2 / span 1;
+  height: 30px;
+  width: auto;
+  
 }
 
-.col3 {
- grid-column: 3 / span 1;
+.search {
+  width: 187px;
+  height: 33px;
+ 
  justify-self: right;
 
 }
