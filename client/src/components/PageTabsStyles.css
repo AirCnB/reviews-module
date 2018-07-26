@@ -1,0 +1,20 @@
+.pageTabs {
+    display: inline-grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+    font-size: 14px;
+    color: #008489;
+}
+
+.tab {
+    border: 1px;
+    padding: 2px;
+    margin: 2px;
+}
+
+.currenttab {
+    color: white;
+    background: #008489;
+    border: 1px;
+    padding: 2px;
+    margin: 2px;
+}
