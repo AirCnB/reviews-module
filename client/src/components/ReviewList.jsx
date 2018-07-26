@@ -76,17 +76,17 @@ class ReviewList extends React.Component {
 	
 	goPrevPage () {
 		if (this.state.pageNum !== 1) {
-			this.setState({
-				pageNum: this.state.pageNum - 1
-			});
+			this.setState((prevState) => ({
+				pageNum: prevState.pageNum - 1
+				}));
 		}
 	}
 
 	goNextPage (totalReviews) {
 		if (this.state.pageNum !== Math.ceil(totalReviews.length/this.state.reviewsPerPage)) {
-			this.setState({
-				pageNum: this.state.pageNum + 1
-			});
+			this.setState((prevState) => ({
+				pageNum: prevState.pageNum + 1
+				}));
 		}
 	}
 
