@@ -15,10 +15,6 @@ class PageTabs extends React.Component {
 		
 	}
 
-	componentDidMount () {
-
-	}
-
 	displayTab (tabNum) {
 		if (tabNum === this.props.pageNum) {
 			return (
@@ -36,20 +32,20 @@ class PageTabs extends React.Component {
 	displayLeftArrow(){
 		return (
 			<div className={styles.tab} onClick={this.props.goPrevPage}>
-				L
+				<button> Left </button>
 			</div>
 		)
 	}
 	displayRightArrow(){
-		// return (
-			// <div onClick={this.props.goNextPage(this.props.totalReviews)}>
-			// 	R
-			// </div>
-		// )
+		return (
+			<div className={styles.tab} onClick={this.props.goNextPage}>
+				<button> Right </button>
+			</div>
+		)
 	}
 
 	displayAllTabs () {
-		if (this.props.pageNum === 1){
+		if (this.props.pageNum === 1) {
 			return (
 				<div className={styles.pageTabs}>
 				{this.displayTab(this.props.pageNum)}
@@ -101,9 +97,6 @@ class PageTabs extends React.Component {
 	}
 
 	render () {
-		console.log(this.props.pageNum);
-		console.log(this.props.totalTabs);
-
 		return (
 			<div>
 				<div>
