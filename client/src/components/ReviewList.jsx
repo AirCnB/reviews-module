@@ -27,7 +27,7 @@ class ReviewList extends React.Component {
 				<span className={styles.header}>
 					{numReviewsFound} of our guests have mentioned "<b>{this.props.searchTerm}</b>" 
 				</span>
-				<span className={styles.goback} onClick={() => this.props.showAllReviews()}>
+				<span className={styles.goback} onClick={this.props.showAllReviews}>
 					Back to all reviews
 				</span>
 			</div>
@@ -59,7 +59,7 @@ class ReviewList extends React.Component {
     let displayedReviews = [];
     let startIndex = reviewsPerPage * (pageNum - 1);
     let endIndex = (reviewsPerPage * pageNum) - 1;
-    for (var i = startIndex; i <= endIndex; i++) {
+    for (let i = startIndex; i <= endIndex; i++) {
       if (totalReviews[i] !== undefined) {
         displayedReviews.push(totalReviews[i]);
       }

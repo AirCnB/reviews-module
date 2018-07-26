@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './SearchStyles.css';
 
-const Search = (props) => {
-	return (
+const Search = (props) => (
+	
 		<div className={styles.searchContainer}>
-			<i className={styles.searchIcon} ></i>
+			<img src="search.svg" className={styles.searchIcon} />
 			<input 
 				type="search"
 				className={styles.searchBox}
@@ -17,9 +17,8 @@ const Search = (props) => {
 				}}
 			/>
 		</div>
-	);
-}
+);
 
 export default Search;
 
-// "fa fa-search searchIcon"
+
