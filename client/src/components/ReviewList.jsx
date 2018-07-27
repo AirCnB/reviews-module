@@ -35,16 +35,22 @@ class ReviewList extends React.Component {
 
 	renderReviews (reviews) {
     let displayedReviews = this.getReviewsToDisplay(reviews);
-		return(
+		return (
 			<div className={styles.wrapper}> 
 			{displayedReviews.map((review, index) => {
 				return (
 					<div key={index} className={styles.review}>
-					<div className={styles.userpic}> (add picture) </div>
-					<div className={styles.username}> {review.user.name} </div>
-					<div className={styles.date}> {review.date} </div>
-					<div className={styles.flag}> <img src="flag.gif"/> </div>
-					<div className={styles.text}> {review.text} </div>
+						<div className={styles.row1}>
+							<div className={styles.userpic + ' ' + styles.column1}> (add picture) </div>
+							<div className={styles.column2}>
+								<div className={styles.username}> {review.user.name} </div>
+								<div className={styles.date}> {review.date} </div>
+							</div>
+							<div className={styles.column3}> <img className={styles.flag} src="flag.gif"/> </div>
+						</div>
+						<div className={styles.row2}>
+							<div className={styles.text}> {review.text} </div>
+						</div>
 					</div>
 				);
 			})}	

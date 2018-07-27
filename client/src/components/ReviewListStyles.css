@@ -25,44 +25,68 @@
 
 .review {
 	display: grid;
-	grid-template-columns: 48px 516px 14px;
-	grid-template-rows: 21px auto 43px;
-	grid-column-gap: 10px;
-	grid-row-gap: 10px;
-	border-bottom: 1px solid #484848
+	grid-template-rows: 48px 126px;
+	border-bottom: 1px solid #484848;
+	width: 595px;
+	height: 175px;
+	margin-top: 20px;
+}
+
+.row1 {
+	grid-row: 1 / 2;
+	align-self: stretch;
+	display: grid;
+	grid-template-columns: 48px 532px 14px;
+}
+
+.row2 {
+	grid-row: 2 / 3;
+	align-self: center;
+	height: 86px;
 
 }
 
 .userpic {
+	justify-self: stretch;
+	align-self: stretch;
+	
+}
+.column1 {
 	grid-column: 1 / 2;
-	grid-row: 1 / 2;
 }
 
+.column2 {
+	grid-column: 2 / 3;
+	align-self: start;
+	justify-self: start;
+	display: grid;
+	grid-template-rows: auto auto; 
+	margin-left: 16px;
+
+}
 .username {
-	grid-column-start: 2;
-	grid-column-end: 3;
-	grid-row-start: 1;
-	grid-row-end: 2;
-	font-weight: bold
+	grid-row: 1 / 2;
+	font-weight: bold;
 }
 
 .date {
-	grid-column-start: 2;
-	grid-column-end: 3;
-	grid-row-start: 2;
-	grid-row-end: 3;
+	grid-row: 2 / 3;
 	font-size: 14px;
 	line-height: 18px;
 }
 
-.flag {
+.column3 {
+	grid-column: 3 / 4;
+	justify-self: stretch;
+	align-self: stretch;
+}
 
+.flag {
+	height: 20px;
+	width: 20px;
 }
 
 .text {
-	grid-column-start: 1;
-	grid-column-end: 4;
-	grid-row-start: row3-start;
-	grid-row-end: 4;
-
+	justify-self: center;
+	align-self: center;
 }
