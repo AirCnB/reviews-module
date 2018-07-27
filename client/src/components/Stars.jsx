@@ -10,6 +10,15 @@ class Stars extends React.Component {
 		}
 	}
 
+
+	createStars () {
+		//repeat 5 times
+		//if rating less i + .25, add empty star
+		//if rating less than i + .75 add half star
+		//if rating .755-full, add full star
+		//for i
+	}
+
 	render () {
 		if (this.props.rating !== 6) {
 			return (

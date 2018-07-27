@@ -28,6 +28,14 @@ class App extends React.Component {
 				  },
 				  date: 'here',
 			}],
+			
+			accuracy: 5,
+			communication: 5,
+			cleanliness: 5,
+			location: 5,
+			checkin: 5,
+			value: 5,
+			
 			totalRating: 5,
 			searchResults: [],
 			showSearch: false,
@@ -37,7 +45,7 @@ class App extends React.Component {
 		this.searchReviews = this.searchReviews.bind(this);
 		this.showAllReviews = this.showAllReviews.bind(this);
 		this.handleChange = this.handleChange.bind(this);
-
+		this.calculateRating
 	}
 
 	handleChange (event) {
@@ -47,7 +55,6 @@ class App extends React.Component {
 	}
 
 	searchReviews () {
-		let self = this;
 		let searchTerm = this.state.searchTerm;
 		let id = window.location.pathname.slice(10);
 		id = parseInt(id.substring(0, id.length));
@@ -55,9 +62,9 @@ class App extends React.Component {
 		axios.post(`/${id}/reviews`, {
 			searchTerm: searchTerm,
 		})
-    .then(function (response) {
+    .then((response) => {
 		let searchResults = response.data;
-    	self.setState({
+    	this.setState({
 			showSearch: true,
     		searchResults: searchResults,
     	});
@@ -73,8 +80,25 @@ class App extends React.Component {
 			showSearch: false,
 			searchResults: [],
 		})
+  }
+  
+	roundRating(rating) {
+		let string = rating.toString();
+		let array = string.split('.');
+		let whole = array[0];
+		let float = parseInt(array[1]);
+		if (float < 25 ) {
+		  return +whole;
+		} else if (float >= 25 && float < 75) {
+		  let output = whole + ".5";
+		  return +output;
+		} else if (parseInt(whole) === 5) {
+        return 5;
+    } else {
+		  return +whole + 1 ;
+		}
 	}
-	
+
   calculateAvgRating (reviews) {
   	var total = 0;
   	var count = 0;
@@ -83,21 +107,44 @@ class App extends React.Component {
 	  		total += reviews[i].rating[criteria];
 	  		count += 1;	
 	  	}	
-  	}
-  	return Math.floor(total/count*100)/100;
-  }
+		}
+  	return this.roundRating(Math.floor(total/count*100)/100);
+	}
+	
+	calculateRating (reviews, label) {
+		let total = 0;
+		for (var i = 0; i < reviews.length; i++) {
+			total += reviews[i].rating[label];				
+   		 }
+		let doubleRating = Math.floor(total/reviews.length*100)/100;
+    let roundedRating = this.roundRating(doubleRating);
+		return roundedRating;
+	}
 
   componentDidMount() {
   	const self = this;
     let id = window.location.pathname.slice(10);
-    id = parseInt(id.substring(0, id.length));
+		id = parseInt(id.substring(0, id.length));
 
     axios.get(`/${id}/reviews`)
-    .then(function (response) {
-    	var totalRating = self.calculateAvgRating(response.data);
-    	self.setState({
+    .then((response) => {
+			
+			let totalRating = this.calculateAvgRating(response.data);
+			let accuracy = this.calculateRating(response.data, "accuracy");
+			let communication = this.calculateRating(response.data, "communication");
+			let cleanliness = this.calculateRating(response.data, "cleanliness");
+			let location = this.calculateRating(response.data, "location");
+			let checkin = this.calculateRating(response.data, "checkin");
+			let value = this.calculateRating(response.data, "value");
+    	this.setState({
     		reviews: response.data,
-    		totalRating: totalRating,
+				totalRating: totalRating,
+				accuracy: accuracy,
+				communication:communication, 
+				cleanliness: cleanliness,
+				location: location,
+				checkin: checkin,
+				value: value,
     	});
 	  })
 	  .catch(function (error) {
@@ -117,7 +164,15 @@ class App extends React.Component {
 					/>
 				</div>
 				<div className={styles.row2}>
-					<ReviewStats reviews={this.state.reviews}/>
+					<ReviewStats 
+					reviews={this.state.reviews}
+					accuracy={this.state.accuracy}
+					communicatio={this.state.communicatio}
+					cleanliness={this.state.cleanliness}
+					location={this.state.location}
+					checkin={this.state.checkin}
+					value={this.state.value}
+					/>
 				</div>
 				<div className={styles.row3}>
 					<ReviewList 
