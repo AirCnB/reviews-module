@@ -1,6 +1,6 @@
 .pageTabs {
     display: inline-grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: 46px 46px 46px 46px 46px 46px 46px 46px 46px;
     font-size: 14px;
     color: #509597;
     margin-top: 20px;
@@ -15,7 +15,7 @@
     text-align: center;
 }
 
-.currenttab {
+.currentTab {
     height: 32px;
     width: 32px;
     color: white;
@@ -30,7 +30,7 @@
     margin-top: 4px;
 }
 
-.currenttab span {
+.currentTab span {
     display: block;
     margin-top: 4px;
 }
