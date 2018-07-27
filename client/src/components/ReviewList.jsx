@@ -11,6 +11,7 @@ class ReviewList extends React.Component {
       reviewsPerPage: 7,
       displayedReviews: [],
 		};
+		this.ShiHaoSlackUrl = "https://ca.slack-edge.com/TB06F6Z52-UB0A87K5H-44b0253d32fd-72";
 		this.renderSearchHeader = this.renderSearchHeader.bind(this);
     this.renderReviews = this.renderReviews.bind(this);
     this.getReviewsToDisplay = this.getReviewsToDisplay.bind(this);
@@ -41,7 +42,7 @@ class ReviewList extends React.Component {
 				return (
 					<div key={index} className={styles.review}>
 						<div className={styles.row1}>
-							<div className={styles.userpic + ' ' + styles.column1}> (add picture) </div>
+							<div className={styles.column1}> <img className={styles.userpic} src={this.ShiHaoSlackUrl}/></div>
 							<div className={styles.column2}>
 								<div className={styles.username}> {review.user.name} </div>
 								<div className={styles.date}> {review.date} </div>

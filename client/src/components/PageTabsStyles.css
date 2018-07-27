@@ -3,18 +3,36 @@
     grid-template-columns: auto auto auto auto auto auto auto auto auto;
     font-size: 14px;
     color: #008489;
+    margin-top: 20px;
 }
 
 .tab {
+    height: 32px;
+    width: 32px;
     border: 1px;
     padding: 2px;
     margin: 2px;
+    justify-self: center;
 }
 
 .currenttab {
+    height: 32px;
+    width: 32px;
     color: white;
     background: #008489;
-    border: 1px;
+    border: 8px;
     padding: 2px;
     margin: 2px;
+    border-radius: 50%;
+    justify-self: center;
+    align-self: center;
+}
+
+.arrow {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    color: #008489;
+    border: 5px;
+    border-color: #008489;
 }

@@ -47,12 +47,14 @@
 }
 
 .userpic {
-	justify-self: stretch;
-	align-self: stretch;
-	
+	border-radius: 50%;
+	height: 48px;
+	width: 48px;
 }
 .column1 {
 	grid-column: 1 / 2;
+	justify-self: stretch;
+	align-self: stretch;
 }
 
 .column2 {
