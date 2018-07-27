@@ -18,7 +18,7 @@ class PageTabs extends React.Component {
 	displayTab (tabNum) {
 		if (tabNum === this.props.pageNum) {
 			return (
-				<div className={styles.currenttab}>
+				<div className={styles.currentTab}>
 					<span onClick={this.props.changePage}> {tabNum} </span>
 				</div>
 			);
