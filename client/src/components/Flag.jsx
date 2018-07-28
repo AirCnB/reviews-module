@@ -17,7 +17,7 @@ class Flag extends React.Component {
         <div className={styles.background}>
         </div>
           <div className={styles.modal}>
-            <button className={styles.close} onClick={this.props.closeFlag}> X </button>
+            <button className={styles} onClick={this.props.closeFlag}> X </button>
             <header>
               Do you want to anonymously report this review?
             </header>
