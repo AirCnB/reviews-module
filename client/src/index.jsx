@@ -206,6 +206,7 @@ class App extends React.Component {
 				<div className={styles.row4}>
 				</div>
 			</div>
+			</div>
 		)
 	}
 }
