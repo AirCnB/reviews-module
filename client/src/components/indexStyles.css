@@ -1,12 +1,13 @@
-
-.container {
-	color: #484848;
+.app{
+  color: #484848;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}
+.container {
   font-size: 16px;
   line-height: 22px;
   width: 595px;
   height: 5670px;
-  
+  z-index: -1;
 	grid-template-rows: 100px 132px auto;
 }
 

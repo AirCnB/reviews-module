@@ -1,0 +1,40 @@
+
+
+
+.background {
+    height: 100%;
+    width: 100%;
+    color: black;
+    opacity: 0.5;
+    z-index: 50;
+
+}
+
+.modal {
+    position: fixed;
+    background: white;
+    padding: 32px;
+    width: 568px;
+    height: 473px;
+
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+header {
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.directions {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: bold;
+}
+.learnMore {
+    color: #008489;
+    
+}

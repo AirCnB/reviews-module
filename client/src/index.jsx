@@ -41,7 +41,8 @@ class App extends React.Component {
 		this.showAllReviews = this.showAllReviews.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.renderFlagPopUp = this.renderFlagPopUp.bind(this);
-
+    this.closeFlag = this.closeFlag.bind(this);
+    
 	}
 
 	handleChange (event) {
@@ -113,13 +114,20 @@ class App extends React.Component {
 		this.setState({
       showPopUp: true,
     });
-	}
+  }
+  
+  closeFlag() {
+    this.setState({
+      showPopUp: false,
+    });
+  }
 
 	render() {
 		return (
-      <div>
+      <div className={styles.app}>
         <Flag
           showPopUp={this.state.showPopUp}
+          closeFlag={this.closeFlag}
         />
         <div className={styles.container}>
           <div className={styles.row1}>
