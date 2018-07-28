@@ -18,7 +18,7 @@ class ReviewList extends React.Component {
 		this.changePage = this.changePage.bind(this);
 		this.goNextPage = this.goNextPage.bind(this);
 		this.goPrevPage = this.goPrevPage.bind(this);
-    this.renderPageTabs = this.renderPageTabs.bind(this);
+		this.renderPageTabs = this.renderPageTabs.bind(this);
   }
   
 	renderSearchHeader (numReviewsFound) {
@@ -47,7 +47,7 @@ class ReviewList extends React.Component {
 								<div className={styles.username}> {review.user.name} </div>
 								<div className={styles.date}> {review.date} </div>
 							</div>
-							<div className={styles.column3}> <img className={styles.flag} src="flag.gif"/> </div>
+							<div className={styles.column3}> <img className={styles.flag} onClick={this.props.renderFlagPopUp} src="flag.gif"/> </div>
 						</div>
 						<div className={styles.row2}>
 							<div className={styles.text}> {review.text} </div>
@@ -120,16 +120,15 @@ class ReviewList extends React.Component {
       )
 		} else if (this.props.searchResults.length === 0) {
 			return(
-				<div>
+				<div>				
 					{this.renderSearchHeader("None")}
 				</div>
 			)
 		} else {
 			return(
-				<div>
+				<div>					
           {this.renderSearchHeader(this.props.searchResults.length)}
           {this.renderReviews(this.props.searchResults)}
-          
 				</div>
 			)
 		}

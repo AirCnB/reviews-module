@@ -5,6 +5,8 @@ import ReviewList from './components/ReviewList.jsx';
 import ReviewStats from './components/ReviewStats.jsx';
 import Header from './components/header.jsx';
 import styles from './components/indexStyles.css';
+import Flag from './components/Flag.jsx';
+
 
 class App extends React.Component {
 	constructor(props){
@@ -31,12 +33,14 @@ class App extends React.Component {
 			totalRating: 5,
 			searchResults: [],
 			showSearch: false,
-			searchTerm: undefined,
+      searchTerm: undefined,
+      showPopUp: false,
 
 		}
 		this.searchReviews = this.searchReviews.bind(this);
 		this.showAllReviews = this.showAllReviews.bind(this);
-		this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.renderFlagPopUp = this.renderFlagPopUp.bind(this);
 
 	}
 
@@ -105,32 +109,42 @@ class App extends React.Component {
 	  });
   }
 
+	renderFlagPopUp() {
+		this.setState({
+      showPopUp: true,
+    });
+	}
+
 	render() {
 		return (
-			<div className={styles.container}>
-				<div className={styles.row1}>
-					<Header 
-						reviews={this.state.reviews} 
-						totalRating={this.state.totalRating}
-						handleChange={this.handleChange}
-						searchReviews={this.searchReviews}
-					/>
-				</div>
-				<div className={styles.row2}>
-					<ReviewStats reviews={this.state.reviews}/>
-				</div>
-				<div className={styles.row3}>
-					<ReviewList 
-						reviews={this.state.reviews} 
-						searchResults={this.state.searchResults} 
-						showSearch={this.state.showSearch}
-						showAllReviews={this.showAllReviews}
-						searchTerm={this.state.searchTerm}
-					/>
-				</div>
-				<div className={styles.row4}>
-				</div>
-			</div>
+      <div>
+        <Flag
+          showPopUp={this.state.showPopUp}
+        />
+        <div className={styles.container}>
+          <div className={styles.row1}>
+            <Header 
+              reviews={this.state.reviews} 
+              totalRating={this.state.totalRating}
+              handleChange={this.handleChange}
+              searchReviews={this.searchReviews}
+            />
+          </div>
+          <div className={styles.row2}>
+            <ReviewStats reviews={this.state.reviews}/>
+          </div>
+          <div className={styles.row3}>
+            <ReviewList 
+              reviews={this.state.reviews} 
+              searchResults={this.state.searchResults} 
+              showSearch={this.state.showSearch}
+              searchTerm={this.state.searchTerm}
+              showAllReviews={this.showAllReviews}
+              renderFlagPopUp={this.renderFlagPopUp}
+            />
+          </div>
+        </div>
+      </div>
 		)
 	}
 }
