@@ -1,13 +1,13 @@
 .searchheaderwrapper {
 	padding: 14px;
 	display: grid;
-	grid-template-columns: 80% 20%;
+	grid-template-columns: 70% 30%;
 }
 
 .topRow {
 	grid-column: 1 / 2;
 	align-self: center;
-	justify-self: center;
+	justify-self: left;
 	font-size: 14px;
 }
 
@@ -15,8 +15,10 @@
 	grid-column: 2 / 3;
 	justify-self: right;
 	color: #008489;	
-	text-decoration: underline;
 	font-size: 14px;
+}
+.goback:hover {	
+	text-decoration: underline;
 }
 
 .wrapper {
