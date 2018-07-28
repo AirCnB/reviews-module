@@ -26,12 +26,12 @@ const createReview = (roomId, counter) => {
       format: 'plain',
     }),
     rating: {
-      accuracy: Math.floor(Math.random() * 5),
-      communication: Math.floor(Math.random() * 5),
-      cleanliness: Math.floor(Math.random() * 5),
-      location: Math.floor(Math.random() * 5),
-      checkin: Math.floor(Math.random() * 5),
-      value: Math.floor(Math.random() * 5),
+      accuracy: Math.floor(Math.random() * 5) + 1,
+      communication: Math.floor(Math.random() * 5) + 1,
+      cleanliness: Math.floor(Math.random() * 5) + 1,
+      location: Math.floor(Math.random() * 5) + 1,
+      checkin: Math.floor(Math.random() * 5) + 1,
+      value: Math.floor(Math.random() * 5) + 1,
     },
     date: randomDate(),
   };
