@@ -40,7 +40,7 @@ class App extends React.Component {
 			totalRating: 5,
 			searchResults: [],
 			showSearch: false,
-      searchTerm: undefined,
+      searchTerm: null,
       showPopUp: false,
 
 		}

@@ -2,22 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styles from './FlagStyles.css';
 
-class Flag extends React.Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			
-		}
-	}
-
-	render () {
-		if (this.props.showPopUp === true) {
+const Flag = (props) => {
+		if (props.showPopUp === true) {
 			return ( 
         <div>
         <div className={styles.background}>
         </div>
           <div className={styles.modal}>
-            <button className={styles} onClick={this.props.closeFlag}> X </button>
+            <button className={styles.close} onClick={props.closeFlag}> X </button>
             <header>
               Do you want to anonymously report this review?
             </header>
@@ -54,7 +46,5 @@ class Flag extends React.Component {
         <div></div>
       );
     }
-	}
 }
-
 export default Flag;
