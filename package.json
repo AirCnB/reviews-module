@@ -5,14 +5,15 @@
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/"
     ],
+    
+    "scriptPreprocessor": "<rootDir>/node_modules/jest-css-modules",
     "collectCoverageFrom": [
       "client/**/*.{jsx}",
       "!**/node_modules/**"
     ],
     "moduleNameMapper": {
-        "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-          "<rootDir>/__mocks__/fileMock.js",
-        "\\.(css|less)$": "identity-obj-proxy"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
     }
   },
   "version": "1.0.0",
@@ -62,6 +63,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
     "jest": "^23.4.1",
+    "jest-css-modules": "^1.1.0",
     "lorem-hipsum": "^0.1.7",
     "lorem-ipsum": "^1.0.5",
     "nodemon": "^1.18.3",

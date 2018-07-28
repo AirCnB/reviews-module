@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dataGenerator = require('../dataGenerator.js');
+const dataGenerator = require('./dataGenerator.js');
 
 mongoose.connect('mongodb://localhost/review');
 const db = mongoose.connection;
