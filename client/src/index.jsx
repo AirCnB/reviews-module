@@ -28,7 +28,6 @@ class App extends React.Component {
 				  },
 				  date: 'here',
 			}],
-			
 			accuracy: 5,
 			communication: 5,
 			cleanliness: 5,
@@ -40,12 +39,10 @@ class App extends React.Component {
 			searchResults: [],
 			showSearch: false,
 			searchTerm: undefined,
-
 		}
 		this.searchReviews = this.searchReviews.bind(this);
 		this.showAllReviews = this.showAllReviews.bind(this);
 		this.handleChange = this.handleChange.bind(this);
-		this.calculateRating
 	}
 
 	handleChange (event) {
@@ -128,7 +125,6 @@ class App extends React.Component {
 
     axios.get(`/${id}/reviews`)
     .then((response) => {
-			
 			let totalRating = this.calculateAvgRating(response.data);
 			let accuracy = this.calculateRating(response.data, "accuracy");
 			let communication = this.calculateRating(response.data, "communication");
@@ -140,7 +136,7 @@ class App extends React.Component {
     		reviews: response.data,
 				totalRating: totalRating,
 				accuracy: accuracy,
-				communication:communication, 
+				communication: communication, 
 				cleanliness: cleanliness,
 				location: location,
 				checkin: checkin,
@@ -167,7 +163,7 @@ class App extends React.Component {
 					<ReviewStats 
 					reviews={this.state.reviews}
 					accuracy={this.state.accuracy}
-					communicatio={this.state.communicatio}
+					communication={this.state.communication}
 					cleanliness={this.state.cleanliness}
 					location={this.state.location}
 					checkin={this.state.checkin}
