@@ -1,10 +1,25 @@
 {
   "name": "y",
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js",
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "collectCoverageFrom": [
+      "client/**/*.{jsx}",
+      "!**/node_modules/**"
+    ],
+    "moduleNameMapper": {
+        "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+          "<rootDir>/__mocks__/fileMock.js",
+        "\\.(css|less)$": "identity-obj-proxy"
+    }
+  },
   "version": "1.0.0",
   "description": "Reviews module for AirCnB",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "dev-react": "webpack -d --watch",
     "start": "nodemon server/index.js",
     "eslint": "eslint ."
@@ -22,11 +37,16 @@
   "homepage": "https://github.com/AirCnB/reviews-module#readme",
   "dependencies": {
     "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.2",
     "babel-loader": "^7.1.5",
     "babel-preset-airbnb": "^2.5.2",
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "express": "^4.16.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-enzyme": "^6.0.2",
     "mongoose": "^5.2.4",
     "save-dev": "^2.0.0",
     "webpack": "^4.16.1",
