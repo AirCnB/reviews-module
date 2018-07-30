@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './SearchStyles.css';
 
 const Search = (props) => (
-	
 		<div className={styles.searchContainer}>
 			<img src="search.svg" className={styles.searchIcon} />
 			<input 
