@@ -40,8 +40,8 @@ class App extends React.Component {
 			totalRating: 5,
 			searchResults: [],
 			showSearch: false,
-      searchTerm: null,
-      showPopUp: false,
+			searchTerm: null,
+			showPopUp: false,
 
 		}
 		this.searchReviews = this.searchReviews.bind(this);
