@@ -55,7 +55,7 @@ class ReviewList extends React.Component {
 					</div>
 				);
 			})}	
-      {this.renderPageTabs(reviews)}
+      {this.renderPageTabs(displayedReviews)}
 			</div>
 		)
   }
@@ -98,6 +98,7 @@ class ReviewList extends React.Component {
 	}
 
   renderPageTabs (totalReviews) {
+		console.log(totalReviews)
     return (
       <PageTabs
         pageNum={this.state.pageNum}
