@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import styles from './StarStyles.css';
 
 class Stars extends React.Component {
@@ -11,7 +10,7 @@ class Stars extends React.Component {
     let starRating = [];
     let array = rating.toString().split(".");
     let whole = +array[0];
-      for (let i = 1; i <= whole; i++){
+    for (let i = 1; i <= whole; i+= 1){
         starRating.push("star_full.svg");
       }
       if (array.length > 1) {
@@ -37,4 +36,3 @@ class Stars extends React.Component {
 }
 
 export default Stars;
-
