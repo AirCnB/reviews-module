@@ -16,13 +16,13 @@ class PageTabs extends React.Component {
 		if (tabNum === this.props.pageNum) {
 			return (
 				<div className={styles.currentTab}>
-					<span onClick={this.props.changePage}> {tabNum} </span>
+					<span onClick={this.props.changePage}>{tabNum}</span>
 				</div>
 			);
 		}
 		return (
 			<div className={styles.tab}>
-				<span onClick={this.props.changePage}> {tabNum} </span>
+				<span onClick={this.props.changePage}>{tabNum}</span>
 			</div>
 		);
 	}
@@ -42,6 +42,7 @@ class PageTabs extends React.Component {
 	}
 
 	displayAllTabs () {
+	
 		if (this.props.pageNum === 1) {
 			return (
 				<div className={styles.pageTabs}>
@@ -129,6 +130,7 @@ class PageTabs extends React.Component {
 	}
 
 	render () {
+		
 		return (
 			<div>
 				<div>
