@@ -11,31 +11,29 @@ const randomDate = () => {
   return `${years[yearIndex]} ${months[monthsIndex]}`;
 };
 
-const createReview = (roomId, counter) => {
-    return {
-    id: counter,
-    roomId,
-    user: {
-      name: users[Math.floor(Math.random() * (users.length - 1))],
-      picture: 'sampleurl',
-    },
-    text: loremHipsum({
-      count: Math.floor(Math.random() * 4),
-      paragraphLowerBound: 3,
-      paragraphUpperBound: 15,
-      format: 'plain',
-    }),
-    rating: {
-      accuracy: Math.floor(Math.random() * 5),
-      communication: Math.floor(Math.random() * 5),
-      cleanliness: Math.floor(Math.random() * 5),
-      location: Math.floor(Math.random() * 5),
-      checkin: Math.floor(Math.random() * 5),
-      value: Math.floor(Math.random() * 5),
-    },
-    date: randomDate(),
-  };
-};
+const createReview = (roomId, counter) => ({
+  id: counter,
+  roomId,
+  user: {
+    name: users[Math.floor(Math.random() * (users.length - 1))],
+    picture: 'sampleurl',
+  },
+  text: loremHipsum({
+    count: Math.floor(Math.random() * 4),
+    paragraphLowerBound: 3,
+    paragraphUpperBound: 15,
+    format: 'plain',
+  }),
+  rating: {
+    accuracy: Math.floor(Math.random() * 5),
+    communication: Math.floor(Math.random() * 5),
+    cleanliness: Math.floor(Math.random() * 5),
+    location: Math.floor(Math.random() * 5),
+    checkin: Math.floor(Math.random() * 5),
+    value: Math.floor(Math.random() * 5),
+  },
+  date: randomDate(),
+});
 
 const makeData = () => {
   const reviewsList = [];

@@ -75,7 +75,7 @@ class ReviewList extends React.Component {
   }
 
   changePage (event) {
-		let pageNum = parseInt(event.target.innerHTML);
+		var pageNum = parseInt(event.target.innerHTML);
     this.setState({
       pageNum: pageNum,
     });
