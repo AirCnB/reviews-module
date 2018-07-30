@@ -1,9 +1,14 @@
 import React from "react";
 import App from "../client/src/components/App.jsx";
 
-
-it('works', () => {
-  const wrap = shallow(
-    <App/>
-  )
-})
+describe('App', () => {
+  const wrapper = shallow(
+    <App
+    />
+  ) 
+  
+  it('should correctly display the currentTab', () => {
+    
+  });
+  
+});
