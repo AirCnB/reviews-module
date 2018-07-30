@@ -6,18 +6,14 @@ import PageTabs from './PageTabs.jsx';
 class ReviewList extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			pageNum: 1,
-      reviewsPerPage: 7,
+		this.state = {	
       displayedReviews: [],
 		};
 		
 		this.renderSearchHeader = this.renderSearchHeader.bind(this);
     this.renderReviews = this.renderReviews.bind(this);
     this.getReviewsToDisplay = this.getReviewsToDisplay.bind(this);
-		this.changePage = this.changePage.bind(this);
-		this.goNextPage = this.goNextPage.bind(this);
-		this.goPrevPage = this.goPrevPage.bind(this);
+
 		this.renderPageTabs = this.renderPageTabs.bind(this);
   }
   
@@ -35,7 +31,7 @@ class ReviewList extends React.Component {
 	}
 
 	renderReviews (reviews) {
-    let displayedReviews = this.getReviewsToDisplay(reviews);
+		let displayedReviews = this.getReviewsToDisplay(reviews);
 		return (
 			<div className={styles.wrapper}> 
 			{displayedReviews.map((review, index) => {
@@ -55,17 +51,16 @@ class ReviewList extends React.Component {
 					</div>
 				);
 			})}	
-      {this.renderPageTabs(displayedReviews)}
+      {this.renderPageTabs(reviews)}
 			</div>
 		)
   }
 
   getReviewsToDisplay (totalReviews) {
-    let pageNum = this.state.pageNum;
-    let reviewsPerPage = this.state.reviewsPerPage;
+    let pageNum = this.props.pageNum;
     let displayedReviews = [];
-    let startIndex = reviewsPerPage * (pageNum - 1);
-    let endIndex = (reviewsPerPage * pageNum) - 1;
+    let startIndex = 7 * (pageNum - 1);
+    let endIndex = (7 * pageNum) - 1;
     for (let i = startIndex; i <= endIndex; i++) {
       if (totalReviews[i] !== undefined) {
         displayedReviews.push(totalReviews[i]);
@@ -74,40 +69,15 @@ class ReviewList extends React.Component {
     return displayedReviews;
   }
 
-  changePage (event) {
-		var pageNum = parseInt(event.target.innerHTML);
-    this.setState({
-      pageNum: pageNum,
-    });
-	}
-	
-	goPrevPage () {
-		if (this.state.pageNum !== 1) {
-			this.setState((prevState) => ({
-				pageNum: prevState.pageNum - 1
-				}));
-		}
-	}
-
-	goNextPage (totalReviews) {
-		if (this.state.pageNum !== Math.ceil(totalReviews.length/this.state.reviewsPerPage)) {
-			this.setState((prevState) => ({
-				pageNum: prevState.pageNum + 1
-				}));
-		}
-	}
-
   renderPageTabs (totalReviews) {
-		console.log(totalReviews)
     return (
       <PageTabs
-        pageNum={this.state.pageNum}
-        reviewsPerPage={this.state.reviewsPerPage}
-        changePage={this.changePage}
+        pageNum={this.props.pageNum}
+        changePage={this.props.changePage}
 				totalReviews={totalReviews}
-				totalTabs={Math.ceil(totalReviews.length/this.state.reviewsPerPage)}
-				goNextPage={this.goNextPage}
-				goPrevPage={this.goPrevPage}
+				totalTabs={Math.ceil(totalReviews.length/7)}
+				goNextPage={this.props.goNextPage}
+				goPrevPage={this.props.goPrevPage}
       />
     )
   }
