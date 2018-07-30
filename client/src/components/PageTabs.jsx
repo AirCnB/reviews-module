@@ -65,7 +65,42 @@ class PageTabs extends React.Component {
 					{this.displayRightArrow()}
 					</div>
 				);
-
+		} else if (this.props.pageNum === 3){
+			return (
+				<div className={styles.pageTabs}>
+				{this.displayLeftArrow()}
+				{this.displayTab(1)}
+				{this.displayTab(2)}
+				{this.displayTab(this.props.pageNum)}
+				{this.displayTab(this.props.pageNum + 1)}
+				<div className={styles.tab}> ... </div>
+				{this.displayTab(this.props.totalTabs)}
+				{this.displayRightArrow()}
+				</div>
+			);
+		} else if (this.props.pageNum === this.props.totalTabs - 2) {
+			return (
+				<div className={styles.pageTabs}>
+				{this.displayLeftArrow()}
+				{this.displayTab(1)}
+				<div className={styles.tab}> ... </div>
+				{this.displayTab(this.props.pageNum)}
+				{this.displayTab(this.props.pageNum + 1)}
+				{this.displayTab(this.props.totalTabs)}
+				{this.displayRightArrow()}
+				</div>
+			);
+		} else if (this.props.pageNum === this.props.totalTabs - 1) {
+				return (
+					<div className={styles.pageTabs}>
+					{this.displayLeftArrow()}
+					{this.displayTab(1)}
+					<div className={styles.tab}> ... </div>
+					{this.displayTab(this.props.pageNum)}
+					{this.displayTab(this.props.totalTabs)}
+					{this.displayRightArrow()}
+					</div>
+				);
 		} else if (this.props.pageNum === this.props.totalTabs) {
 			return (
 				<div className={styles.pageTabs}>

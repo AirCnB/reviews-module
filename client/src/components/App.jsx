@@ -35,6 +35,8 @@ class App extends React.Component {
 			location: 5,
 			checkin: 5,
 			value: 5,
+
+			pageNum: 1,
 			
 			totalRating: 5,
 			searchResults: [],
@@ -47,7 +49,11 @@ class App extends React.Component {
 		this.showAllReviews = this.showAllReviews.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.renderFlagPopUp = this.renderFlagPopUp.bind(this);
-    this.closeFlag = this.closeFlag.bind(this);
+		this.closeFlag = this.closeFlag.bind(this);
+		
+		this.changePage = this.changePage.bind(this);
+		this.goNextPage = this.goNextPage.bind(this);
+		this.goPrevPage = this.goPrevPage.bind(this);
 	}
 
 	handleChange (event) {
@@ -68,7 +74,8 @@ class App extends React.Component {
 		let searchResults = response.data;
     	this.setState({
 			showSearch: true,
-    		searchResults: searchResults,
+				searchResults: searchResults,
+				pageNum: 1,
     	});
 	})
 	.catch(function (error) {
@@ -81,6 +88,7 @@ class App extends React.Component {
 		this.setState({
 			showSearch: false,
 			searchResults: [],
+			pageNum: 1,
 		})
   }
   
@@ -111,6 +119,29 @@ class App extends React.Component {
 	  	}	
 		}
   	return this.roundRating(Math.floor(total/count*100)/100);
+	}
+
+	changePage (event) {
+		let pageNum = parseInt(event.target.innerHTML);
+    this.setState({
+      pageNum: pageNum,
+    });
+	}
+	
+	goPrevPage () {
+		if (this.state.pageNum !== 1) {
+			this.setState((prevState) => ({
+				pageNum: prevState.pageNum - 1
+				}));
+		}
+	}
+
+	goNextPage (totalReviews) {
+		if (this.state.pageNum !== Math.ceil(totalReviews.length/7)) {
+			this.setState((prevState) => ({
+				pageNum: prevState.pageNum + 1
+				}));
+		}
 	}
 	
 	calculateRating (reviews, label) {
@@ -199,7 +230,11 @@ class App extends React.Component {
 						showSearch={this.state.showSearch}
 						showAllReviews={this.showAllReviews}
 						searchTerm={this.state.searchTerm}
-            renderFlagPopUp={this.renderFlagPopUp}
+						renderFlagPopUp={this.renderFlagPopUp}
+						changePage={this.changePage}
+						goNextPage={this.goNextPage}
+						goPrevPage={this.goPrevPage}
+						pageNum={this.state.pageNum}
 					/>
 				</div>
 				<div className={styles.row4}>
