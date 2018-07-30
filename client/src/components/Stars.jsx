@@ -10,15 +10,15 @@ class Stars extends React.Component {
     let starRating = [];
     let array = rating.toString().split(".");
     let whole = +array[0];
-    for (let i = 1; i <= whole; i+= 1){
+    for (let i = 1; i <= whole; i+= 1) {
         starRating.push("star_full.svg");
-      }
-      if (array.length > 1) {
+    }
+    if (array.length > 1) {
         starRating.push("star_half.svg");
-      } 
-      while (starRating.length < 5) {
-        starRating.push("star_empty.svg");
-      }
+    } 
+    while (starRating.length < 5) {
+      starRating.push("star_empty.svg");
+    }
 		return starRating;
   }
 
