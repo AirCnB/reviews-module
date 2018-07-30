@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import styles from './ReviewListStyles.css';
 import PageTabs from './PageTabs.jsx';
 
