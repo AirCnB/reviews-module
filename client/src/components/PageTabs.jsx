@@ -5,13 +5,11 @@ import styles from './PageTabsStyles.css';
 class PageTabs extends React.Component {
 	constructor(props){
 		super(props);
-		this.state = {
-			totalTabs: 1,
-		};
+	
 		this.displayTab = this.displayTab.bind(this);
-		this.displayAllTabs = this.displayAllTabs.bind(this);
 		this.displayLeftArrow = this.displayLeftArrow.bind(this);
 		this.displayRightArrow = this.displayRightArrow.bind(this);
+		this.displayAllTabs = this.displayAllTabs.bind(this);
 		
 	}
 

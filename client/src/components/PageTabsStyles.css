@@ -1,6 +1,7 @@
 .pageTabs {
     display: inline-grid;
     grid-template-columns: 46px 46px 46px 46px 46px 46px 46px 46px 46px;
+    column-gap: 1em;
     font-size: 14px;
     color: #509597;
     margin-top: 20px;
