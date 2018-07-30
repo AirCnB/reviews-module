@@ -2,3 +2,5 @@ node_modules
 public
 jest.config.js
 README.md
+tests
+coverage
