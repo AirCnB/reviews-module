@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../client/src/components/Header.jsx';
+import Header from '../client/src/components/header.jsx';
 import Stars from '../client/src/components/Stars.jsx';
 import Search from '../client/src/components/Search.jsx';
 
