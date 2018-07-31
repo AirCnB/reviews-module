@@ -15,6 +15,9 @@ describe('Header', () => {
       searchReviews={searchReviews}
     />
   ) 
+  it('should render the component properly', () => {
+    expect(wrapper.exists()).toEqual(true);
+  });
   
   it('should correctly display the currentTab', () => {
     expect(wrapper.find('.total').text()).toBe('98 Reviews');
