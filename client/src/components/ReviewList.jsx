@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './ReviewListStyles.css';
 import PageTabs from './PageTabs.jsx';
+import PropTypes from 'prop-types';
 
 class ReviewList extends React.Component {
 	constructor(props) {
@@ -73,7 +74,6 @@ class ReviewList extends React.Component {
       <PageTabs
         pageNum={this.props.pageNum}
         changePage={this.props.changePage}
-				totalReviews={totalReviews}
 				totalTabs={Math.ceil(totalReviews.length/7)}
 				goNextPage={this.props.goNextPage}
 				goPrevPage={this.props.goPrevPage}
@@ -104,5 +104,55 @@ class ReviewList extends React.Component {
 		}
 	}
 }
+
+ReviewList.defaultProps = {
+	reviews: [{
+		roomId: 1,
+		user: {
+			name: 'name',
+			picture: 'url', 
+		},
+		text: 'text',
+		rating: {
+			accuracy: 4,
+			communication: 5,
+			cleanliness: 2,
+			location: 5,
+			checkin: 1,
+			value: 5,
+		},
+		date: 'June 2017',
+	}],
+	searchResult: [{
+		roomId: 1,
+		user: {
+			name: 'name',
+			picture: 'url', 
+		},
+		text: 'text',
+		rating: {
+			accuracy: 4,
+			communication: 5,
+			cleanliness: 2,
+			location: 5,
+			checkin: 1,
+			value: 5,
+		},
+		date: 'June 2017',
+	}],
+};
+
+ReviewList.propTypes = {
+	reviews: PropTypes.array,
+	searchResults: PropTypes.array,
+	searchTerm: PropTypes.string,
+	showSearch: PropTypes.bool,
+	pageNum: PropTypes.number,
+	changePage: PropTypes.func,
+	goPrevPage: PropTypes.func,
+	goNextPage: PropTypes.func,
+	showAllReview: PropTypes.func,
+	renderFlagPopUp: PropTypes.func,
+};
 
 export default ReviewList;

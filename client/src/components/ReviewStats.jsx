@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Stars from './Stars.jsx'
 import styles from './ReviewStatsStyles.css';
+import PropTypes from 'prop-types';
 
 const ReviewStats = (props) => {
 	return (
@@ -37,5 +37,21 @@ const ReviewStats = (props) => {
 		</div>
 	)
 }
+
+ReviewStats.defaultProps = {
+	accuracy: 3,
+	communication: 2.5,
+	cleanliness: 4.5,
+	location: 3,
+	check: 5,
+};
+
+ReviewStats.propTypes = {
+	accuracy: PropTypes.number,
+	communication: PropTypes.number,
+	cleanliness: PropTypes.number,
+	location: PropTypes.number,
+	check: PropTypes.number,
+};
 
 export default ReviewStats;

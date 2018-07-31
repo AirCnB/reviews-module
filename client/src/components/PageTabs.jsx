@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './PageTabsStyles.css';
+import PropTypes from 'prop-types';
 
 class PageTabs extends React.Component {
 	constructor(props){
 		super(props);
-	
 		this.displayTab = this.displayTab.bind(this);
 		this.displayLeftArrow = this.displayLeftArrow.bind(this);
 		this.displayRightArrow = this.displayRightArrow.bind(this);
@@ -131,8 +131,7 @@ class PageTabs extends React.Component {
 		}
 	}
 
-	render () {
-		
+	render () {		
 		return (
 			<div>
 				<div>
@@ -142,5 +141,18 @@ class PageTabs extends React.Component {
 		)
 	}
 }
+
+PageTabs.defaultProps = {
+  pageNum: 1,
+  totalTabs: 2,
+};
+
+PageTabs.propTypes = {
+  pageNum: PropTypes.number,
+  totalTabs: PropTypes.number,
+  goNextPag: PropTypes.func,
+  goPrevPage: PropTypes.func,
+  changePage: PropTypes.func,
+};
 
 export default PageTabs;

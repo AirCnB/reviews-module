@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import styles from './FlagStyles.css';
+import PropTypes from 'prop-types';
 
 const Flag = (props) => {
 		if (props.showPopUp === true) {
@@ -47,4 +47,10 @@ const Flag = (props) => {
       );
     }
 }
+
+Flag.propTypes = {
+  showPopUp: PropTypes.bool,
+  closeFlag: PropTypes.func,
+};
+
 export default Flag;

@@ -28,16 +28,18 @@ class App extends React.Component {
 				  },
 				  date: 'here',
 			}],
+
 			accuracy: 5,
 			communication: 5,
 			cleanliness: 5,
 			location: 5,
 			checkin: 5,
 			value: 5,
+			
+			totalRating: 5,
 
 			pageNum: 1,
 			
-			totalRating: 5,
 			searchResults: [],
 			showSearch: false,
 			searchTerm: null,
@@ -167,15 +169,16 @@ class App extends React.Component {
 			let location = this.calculateRating(response.data, "location");
 			let checkin = this.calculateRating(response.data, "checkin");
 			let value = this.calculateRating(response.data, "value");
+			let reviews = response.data;
     	this.setState({
-    		reviews: response.data,
-				totalRating: totalRating,
-				accuracy: accuracy,
-				communication: communication, 
-				cleanliness: cleanliness,
-				location: location,
-				checkin: checkin,
-				value: value,
+    		reviews,
+				totalRating,
+				accuracy,
+				communication, 
+				cleanliness,
+				location,
+				checkin,
+				value,
     	});
 	  })
 	  .catch(function (error) {
@@ -213,7 +216,6 @@ class App extends React.Component {
 				</div>
 				<div className={styles.row2}>
 					<ReviewStats 
-					reviews={this.state.reviews}
 					accuracy={this.state.accuracy}
 					communication={this.state.communication}
 					cleanliness={this.state.cleanliness}
@@ -226,14 +228,14 @@ class App extends React.Component {
 					<ReviewList 
 						reviews={this.state.reviews} 
 						searchResults={this.state.searchResults} 
-						showSearch={this.state.showSearch}
-						showAllReviews={this.showAllReviews}
 						searchTerm={this.state.searchTerm}
-						renderFlagPopUp={this.renderFlagPopUp}
-						changePage={this.changePage}
-						goNextPage={this.goNextPage}
-						goPrevPage={this.goPrevPage}
+						showSearch={this.state.showSearch}
 						pageNum={this.state.pageNum}
+						changePage={this.changePage}
+						goPrevPage={this.goPrevPage}
+						goNextPage={this.goNextPage}
+						showAllReviews={this.showAllReviews}
+						renderFlagPopUp={this.renderFlagPopUp}
 					/>
 				</div>
 				<div className={styles.row4}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './SearchStyles.css';
+import PropTypes from 'prop-types'; 
 
 const Search = (props) => (
 		<div className={styles.searchContainer}>
@@ -17,5 +18,10 @@ const Search = (props) => (
 			/>
 		</div>
 );
+
+Search.propTypes = {
+  searchReviews: PropTypes.func,
+	handleChange: PropTypes.func,
+};
 
 export default Search;
