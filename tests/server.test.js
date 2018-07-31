@@ -1,8 +1,15 @@
+const request = require('supertest');
+const express = require('express');
+const server = require('../server/index.js')
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(1 + 2).toBe(3);
+describe('Server', () => {
+  it('should GET reviews data by Listing id', (done) => {
+    request.get('/2/reviews')
+      .expect((res) => {
+        expect(res.body.id).toBe(2);
+      })
+      .expect(200)
+      .end(done);
+  });
+
 });
-
-
-//name t=file ...app.test.js  import component and react
-
