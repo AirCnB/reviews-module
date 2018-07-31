@@ -1,7 +1,7 @@
 {
   "name": "y",
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js",
+    "setupTestFrameworkScriptFile": "<rootDir>/setuptests.js",
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/"
     ],
