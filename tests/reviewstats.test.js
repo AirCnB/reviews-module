@@ -1,6 +1,6 @@
 import React from "react";
 import ReviewStats from "../client/src/components/ReviewStats.jsx";
-
+import Stars from '../client/src/components/Stars.jsx';
 
 const reviews = [];
 const accuracy = 3;
@@ -22,9 +22,13 @@ describe('ReviewStats', () => {
       value={value}
     />
   ) 
-  
-  it('should correctly display the currentTab', () => {
-    // expect(wrapper.find('.total').text()).toBe('98 Reviews');
+
+  it('should render the component properly', () => {
+    expect(wrapper.exists()).toEqual(true);
   });
   
+  it('should render 6 <Stars/> components', () => {
+    expect(wrapper.find(Stars)).toHaveLength(6);
+  });
+
 });

@@ -238,8 +238,6 @@ class App extends React.Component {
 						renderFlagPopUp={this.renderFlagPopUp}
 					/>
 				</div>
-				<div className={styles.row4}>
-				</div>
 			</div>
 			</div>
 		)

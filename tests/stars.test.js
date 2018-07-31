@@ -8,9 +8,8 @@ describe('Header', () => {
     />
   ) 
   
-  it('should correctly display the currentTab', () => {
-    //createStars should be called at least once
-    //create stars should create an array of length 5
+  it('should render the component properly', () => {
+    expect(wrapper.exists()).toEqual(true);
   });
   
 });
