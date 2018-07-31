@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
 import ReviewStats from './ReviewStats.jsx';
 import Header from './header.jsx';
-import styles from './indexStyles.css';
+import styles from './AppStyles.css';
 import Flag from './Flag.jsx';
 
 class App extends React.Component {

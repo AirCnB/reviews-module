@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">64.71% </span>
+        <span class="strong">84.31% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>33/51</span>
+        <span class='fraction'>43/51</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">56.41% </span>
+        <span class="strong">58.97% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>22/39</span>
+        <span class='fraction'>23/39</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">73.33% </span>
+        <span class="strong">93.33% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>11/15</span>
+        <span class='fraction'>14/15</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">46.15% </span>
+        <span class="strong">84.62% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>12/26</span>
+        <span class='fraction'>22/26</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -237,8 +237,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -263,20 +263,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -295,13 +295,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -392,11 +392,11 @@ class ReviewList extends React.Component {
 				&lt;/span&gt;
 			&lt;/div&gt;
 		)
-	}<span class="fstat-no" title="function not covered" ></span>
+	}
 &nbsp;
 	renderReviews (reviews) {
-		let displayedReviews = t<span class="cstat-no" title="statement not covered" >his.getReviewsToDisplay(reviews);</span>
-		r<span class="cstat-no" title="statement not covered" >eturn (</span>
+		let displayedReviews = this.getReviewsToDisplay(reviews);
+		return (
 			&lt;div className={styles.wrapper}&gt; 
 			{displayedReviews.map((<span class="fstat-no" title="function not covered" >re</span>view, index) =&gt; {
 				re<span class="cstat-no" title="statement not covered" >turn (</span>
@@ -418,23 +418,23 @@ class ReviewList extends React.Component {
       {this.renderPageTabs(reviews)}
 			&lt;/div&gt;
 		)
-  }<span class="fstat-no" title="function not covered" ></span>
+  }
 &nbsp;
   getReviewsToDisplay (totalReviews) {
-    let pageNum =<span class="cstat-no" title="statement not covered" > this.props.pageNum</span>;
-    let displayedReviews =<span class="cstat-no" title="statement not covered" > []</span>;
-    let startIndex =<span class="cstat-no" title="statement not covered" > 7 * (pageNum - 1)</span>;
-    let endIndex =<span class="cstat-no" title="statement not covered" > (7 * pageNum) -</span> 1;
-<span class="cstat-no" title="statement not covered" >    for (let i = startIndex; i &lt;= endIndex; i++) {</span>
-<span class="cstat-no" title="statement not covered" >      if (totalReviews[i] !== undefined) {</span>
+    let pageNum = this.props.pageNum;
+    let displayedReviews = [];
+    let startIndex = 7 * (pageNum - 1);
+    let endIndex = (7 * pageNum) - 1;
+    for (let i = startIndex; i &lt;= endIndex; i++) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>  if (totalReviews[i] !== undefined) {
 <span class="cstat-no" title="statement not covered" >        displayedReviews.push(totalReviews[i]</span>);
       }
     }
-<span class="cstat-no" title="statement not covered" >    return displayedReviews;</span>
-  }<span class="fstat-no" title="function not covered" ></span>
+    return displayedReviews;
+  }
 &nbsp;
   renderPageTabs (totalReviews) {
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
       &lt;PageTabs
         pageNum={this.props.pageNum}
         changePage={this.props.changePage}
@@ -452,14 +452,14 @@ class ReviewList extends React.Component {
           {this.renderReviews(this.props.reviews)}
 				&lt;/div&gt;
       )
-		} else i<span class="missing-if-branch" title="else path not taken" >E</span>f (this.props.searchResults.length === 0) {
-			return(
+		} else i<span class="missing-if-branch" title="if path not taken" >I</span>f (this.props.searchResults.length === 0) {
+			r<span class="cstat-no" title="statement not covered" >eturn(</span>
 				&lt;div&gt;				
 					{this.renderSearchHeader("None")}
 				&lt;/div&gt;
 			)
 		} else {
-			r<span class="cstat-no" title="statement not covered" >eturn(</span>
+			return(
 				&lt;div&gt;					
           {this.renderSearchHeader(this.props.searchResults.length)}
           {this.renderReviews(this.props.searchResults)}
@@ -526,7 +526,7 @@ export default ReviewList;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 31 2018 02:55:22 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 31 2018 03:13:30 GMT-0700 (Pacific Daylight Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>
