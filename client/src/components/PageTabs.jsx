@@ -42,8 +42,11 @@ class PageTabs extends React.Component {
 	}
 
 	displayAllTabs () {
-	
-		if (this.props.pageNum === 1) {
+		if (this.props.totalTabs === 1) {
+			return (
+				<div> </div>
+			)
+		} else if (this.props.pageNum === 1) {
 			return (
 				<div className={styles.pageTabs}>
 				{this.displayTab(this.props.pageNum)}
@@ -111,7 +114,6 @@ class PageTabs extends React.Component {
 				{this.displayTab(this.props.pageNum)}
 				</div>
 			);
-			
 		} else {
 			return (
 				<div className={styles.pageTabs}>
