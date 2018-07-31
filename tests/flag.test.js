@@ -2,7 +2,7 @@ import React from "react";
 import Flag from "../client/src/components/Flag.jsx";
 
 
-const showPopUp = () => {}
+const showPopUp = false;
 const closeFlag = () => {}
 
 describe('Header', () => {
@@ -19,6 +19,16 @@ describe('Header', () => {
     //expect showpop Up true = something rendered
     //expect closing Flag is a function
     
+  });
+
+  it('should display Flag when showPopUp is true', () => {
+   let wrap = shallow( <Flag showPopUp={true} closeFlag={closeFlag} />);
+    expect(wrap.find('.flag').hasClass('#showsFlag')).toEqual(true);
+  });
+
+  it('should display Flag when showPopUp is false', () => {
+    let wrap = shallow( <Flag showPopUp={false} closeFlag={closeFlag} />);
+    expect(wrap.find('.flag').hasClass('#showsFlag')).toEqual(false);
   });
   
 });

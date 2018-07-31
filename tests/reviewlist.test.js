@@ -1,16 +1,16 @@
 import React from "react";
 import ReviewList from "../client/src/components/ReviewList.jsx";
 
-const reviews = () => {}
-const searchResults = () => {}
-const showSearch = () => {}
-const showAllReviews = () => {}
-const searchTerm = () => {}
-const renderFlagPopUp = () => {}
-const changePage = () => {}
-const goNextPage = () => {}
-const goPrevPage = () => {}
-const pageNum = () => {}
+const reviews = [];
+const searchResults = [];
+const showSearch = true;
+const showAllReviews = () => {};
+const searchTerm = "testsearch";
+const renderFlagPopUp = () => {};
+const changePage = () => {};
+const goNextPage = () => {};
+const goPrevPage = () => {};
+const pageNum = 2;
 
 describe('Header', () => {
   const wrapper = shallow(
