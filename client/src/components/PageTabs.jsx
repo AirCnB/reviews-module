@@ -9,7 +9,6 @@ class PageTabs extends React.Component {
 		this.displayLeftArrow = this.displayLeftArrow.bind(this);
 		this.displayRightArrow = this.displayRightArrow.bind(this);
 		this.displayAllTabs = this.displayAllTabs.bind(this);
-		
 	}
 
 	displayTab (tabNum) {
@@ -28,14 +27,14 @@ class PageTabs extends React.Component {
 	}
 	displayLeftArrow(){
 		return (
-			<div className={styles.tab} onClick={this.props.goPrevPage}>
+			<div className={styles.tab + " " + styles.prev} onClick={this.props.goPrevPage}>
 				<button className={styles.arrow}><span>&lsaquo;</span></button>
 			</div>
 		)
 	}
 	displayRightArrow(){
 		return (
-			<div className={styles.tab} onClick={this.props.goNextPage}>
+			<div className={styles.tab + " " + styles.next} onClick={this.props.goNextPage}>
 				<button className={styles.arrow}><span>&rsaquo;</span></button>
 			</div>
 		)

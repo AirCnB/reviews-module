@@ -15,6 +15,7 @@ describe('Header', () => {
       searchReviews={searchReviews}
     />
   ) 
+  
   it('should render the component properly', () => {
     expect(wrapper.exists()).toEqual(true);
   });
