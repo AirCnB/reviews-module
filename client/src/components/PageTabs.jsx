@@ -1,15 +1,14 @@
 import React from 'react';
 import styles from './PageTabsStyles.css';
+import PropTypes from 'prop-types';
 
 class PageTabs extends React.Component {
 	constructor(props){
 		super(props);
-	
 		this.displayTab = this.displayTab.bind(this);
 		this.displayLeftArrow = this.displayLeftArrow.bind(this);
 		this.displayRightArrow = this.displayRightArrow.bind(this);
 		this.displayAllTabs = this.displayAllTabs.bind(this);
-		
 	}
 
 	displayTab (tabNum) {
@@ -28,22 +27,25 @@ class PageTabs extends React.Component {
 	}
 	displayLeftArrow(){
 		return (
-			<div className={styles.tab} onClick={this.props.goPrevPage}>
+			<div className={styles.tab + " " + styles.prev} onClick={this.props.goPrevPage}>
 				<button className={styles.arrow}><span>&lsaquo;</span></button>
 			</div>
 		)
 	}
 	displayRightArrow(){
 		return (
-			<div className={styles.tab} onClick={this.props.goNextPage}>
+			<div className={styles.tab + " " + styles.next} onClick={this.props.goNextPage}>
 				<button className={styles.arrow}><span>&rsaquo;</span></button>
 			</div>
 		)
 	}
 
 	displayAllTabs () {
-	
-		if (this.props.pageNum === 1) {
+		if (this.props.totalTabs === 1) {
+			return (
+				<div> </div>
+			)
+		} else if (this.props.pageNum === 1) {
 			return (
 				<div className={styles.pageTabs}>
 				{this.displayTab(this.props.pageNum)}
@@ -111,7 +113,6 @@ class PageTabs extends React.Component {
 				{this.displayTab(this.props.pageNum)}
 				</div>
 			);
-			
 		} else {
 			return (
 				<div className={styles.pageTabs}>
@@ -129,8 +130,7 @@ class PageTabs extends React.Component {
 		}
 	}
 
-	render () {
-		
+	render () {		
 		return (
 			<div>
 				<div>
@@ -140,5 +140,18 @@ class PageTabs extends React.Component {
 		)
 	}
 }
+
+PageTabs.defaultProps = {
+  pageNum: 1,
+  totalTabs: 2,
+};
+
+PageTabs.propTypes = {
+  pageNum: PropTypes.number,
+  totalTabs: PropTypes.number,
+  goNextPag: PropTypes.func,
+  goPrevPage: PropTypes.func,
+  changePage: PropTypes.func,
+};
 
 export default PageTabs;

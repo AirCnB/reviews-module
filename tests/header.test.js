@@ -1,5 +1,7 @@
-import React from "react";
-import Header from "../client/src/components/Header.jsx";
+import React from 'react';
+import Header from '../client/src/components/header.jsx';
+import Stars from '../client/src/components/Stars.jsx';
+import Search from '../client/src/components/Search.jsx';
 
 const handleChange = () => {}
 const searchReviews = () => {}
@@ -14,8 +16,20 @@ describe('Header', () => {
     />
   ) 
   
+  it('should render the component properly', () => {
+    expect(wrapper.exists()).toEqual(true);
+  });
+  
   it('should correctly display the currentTab', () => {
     expect(wrapper.find('.total').text()).toBe('98 Reviews');
+  });
+
+  it('should render 1 <Stars/> components', () => {
+    expect(wrapper.find(Stars)).toHaveLength(1);
+  });
+
+  it('should render 1 <Search/> components', () => {
+    expect(wrapper.find(Search)).toHaveLength(1);
   });
   
 });

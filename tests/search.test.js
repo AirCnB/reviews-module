@@ -2,8 +2,19 @@ import React from "react";
 import Search from "../client/src/components/Search.jsx";
 
 
-it('works', () => {
-  const wrap = shallow(
-    <Search/>
-  )
-})
+const searchReviews = () => {}
+const handleChange = () => {}
+
+describe('Header', () => {
+  const wrapper = shallow(
+    <Search
+      searchReviews={searchReviews}
+      handleChange={handleChange}
+    />
+  ) 
+
+  it('should render the component properly', () => {
+    expect(wrapper.exists()).toEqual(true);
+  });
+  
+});

@@ -1,14 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import styles from './FlagStyles.css';
+import PropTypes from 'prop-types';
 
 const Flag = (props) => {
 		if (props.showPopUp === true) {
 			return ( 
-        <div>
+        <div className="flag">
         <div className={styles.background}>
         </div>
-          <div className={styles.modal}>
+          <div className={styles.modal} id="showsFlag">
             <button className={styles.close} onClick={props.closeFlag}> X </button>
             <header>
               Do you want to anonymously report this review?
@@ -43,8 +43,14 @@ const Flag = (props) => {
       )
 		} else {
       return (
-        <div></div>
+        <div className="flag"></div>
       );
     }
 }
+
+Flag.propTypes = {
+  showPopUp: PropTypes.bool,
+  closeFlag: PropTypes.func,
+};
+
 export default Flag;
