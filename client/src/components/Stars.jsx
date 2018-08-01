@@ -2,12 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './StarStyles.css';
 
-class Stars extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  createStars(rating) {
+const Stars = (props) => {
+  const createStars = (rating) => {
     const starRating = [];
     const array = rating.toString().split('.');
     const whole = +array[0];
@@ -21,18 +17,16 @@ class Stars extends React.Component {
       starRating.push('star_empty.svg');
     }
     return starRating;
-  }
+  };
 
-  render() {
-    return (
-      <div className={styles.stars}>
-        { 
-          this.createStars(this.props.rating).map((star, index) => (<img key={index} className={styles.categorystar} src={star} alt="Star" />))
-        }
-      </div>
-    );
-  }
-}
+  return (
+    <div className={styles.stars}>
+      {createStars(props.rating).map((star, index) => (
+        <img key={index} className={styles.categorystar} src={star} alt="Star" />
+      ))}
+    </div>
+  );
+};
 
 Stars.defaultProps = {
   rating: 5,
