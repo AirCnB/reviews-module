@@ -4,23 +4,21 @@ import styles from '../css/PageTabsStyles.css';
 
 const PageTabs = (props) => {
   const {
-    pageNum, changePage, totalTabs, goNextPage, goPrevPage
+    pageNum, changePage, totalTabs, goNextPage, goPrevPage,
   } = props;
 
-  const displayTab = (tabNum) => {
-    return (
-      <div>
-        <span onClick={changePage}>
-          {tabNum}
-        </span>
-      </div>
-    );
-  };
+  const displayTab = tabNum => (
+    <div>
+      <span onClick={changePage}>
+        {tabNum}
+      </span>
+    </div>
+  );
 
   const displayLeftArrow = () => {
     if (pageNum !== 1) {
       return (
-        <div className={styles.tab + " " + styles.prev} onClick={goPrevPage}>
+        <div className={styles.tab + ' ' + styles.prev} onClick={goPrevPage}>
           <button className={styles.arrow}>
             <span>
               &lsaquo;
@@ -45,7 +43,9 @@ const PageTabs = (props) => {
     if (pageNum - 3 >= 1) {
       return (
         <div className={styles.tab}>
-          <div>...</div>
+          <div>
+            ...
+          </div>
         </div>
       );
     }
@@ -61,13 +61,11 @@ const PageTabs = (props) => {
     }
   };
 
-  const displayCurrentTab = () => {
-    return (
-      <div className={styles.currentTab}>
-        {displayTab(pageNum)}
-      </div>
-    );
-  };
+  const displayCurrentTab = () => (
+    <div className={styles.currentTab}>
+      {displayTab(pageNum)}
+    </div>
+  );
 
   const displayNextTab = () => {
     if (pageNum < totalTabs - 1) {
@@ -83,7 +81,9 @@ const PageTabs = (props) => {
     if (pageNum < totalTabs - 2) {
       return (
         <div className={styles.tab}>
-          <div>...</div>
+          <div>
+            ...
+          </div>
         </div>
       );
     }
@@ -102,9 +102,13 @@ const PageTabs = (props) => {
   const displayRightArrow = () => {
     if (pageNum !== totalTabs) {
       return (
-        <div className={styles.tab + " " + styles.next} onClick={goNextPage}>
-          <button className={styles.arrow}><span>&rsaquo;</span></button>
-      </div>
+        <div className={styles.tab + ' ' + styles.next} onClick={goNextPage}>
+          <button className={styles.arrow}>
+            <span>
+              &rsaquo;
+            </span>
+          </button>
+        </div>
       );
     }
   };
@@ -124,7 +128,7 @@ const PageTabs = (props) => {
       </div>
     </div>
   );
-}
+};
 
 PageTabs.defaultProps = {
   pageNum: 1,
@@ -134,8 +138,8 @@ PageTabs.defaultProps = {
 PageTabs.propTypes = {
   pageNum: PropTypes.number,
   totalTabs: PropTypes.number,
-  goNextPag: PropTypes.func,
-  goPrevPage: PropTypes.func,
+  goNextPage: PropTypes.func,
+  goPrevPagee: PropTypes.func,
   changePage: PropTypes.func,
 };
 

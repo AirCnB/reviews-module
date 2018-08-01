@@ -7,7 +7,7 @@
     ],
     "scriptPreprocessor": "<rootDir>/node_modules/jest-css-modules",
     "collectCoverageFrom": [
-      "client/**/*.{jsx}",
+      "client/src/components/*.{jsx}",
       "!**/node_modules/**"
     ],
     "moduleNameMapper": {

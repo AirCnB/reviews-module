@@ -57,17 +57,16 @@ class App extends React.Component {
 
   componentDidMount() {
     let id = window.location.pathname.slice(10);
-    id = parseInt(id.substring(0, id.length), 10)    
+    id = parseInt(id.substring(0, id.length), 10);
     axios.get(`/${id}/reviews`)
       .then((response) => {
-        //calculate but it in another method
         const totalRating = this.calculateAvgRating(response.data);
-        const accuracy = this.calculateRating(response.data, "accuracy");
-        const communication = this.calculateRating(response.data, "communication");
-        const cleanliness = this.calculateRating(response.data, "cleanliness");
-        const location = this.calculateRating(response.data, "location");
-        const checkin = this.calculateRating(response.data, "checkin");
-        const value = this.calculateRating(response.data, "value");
+        const accuracy = this.calculateRating(response.data, 'accuracy');
+        const communication = this.calculateRating(response.data, 'communication');
+        const cleanliness = this.calculateRating(response.data, 'cleanliness');
+        const location = this.calculateRating(response.data, 'location');
+        const checkin = this.calculateRating(response.data, 'checkin');
+        const value = this.calculateRating(response.data, 'value');
         const reviews = response.data;
         this.setState({
           reviews, totalRating, accuracy, communication, cleanliness, location, checkin, value,
@@ -82,29 +81,38 @@ class App extends React.Component {
     let string = rating.toString();
     let array = string.split('.');
     let whole = array[0];
-    let float = parseInt(array[1]);
-    if (float < 25 ) {
+    let float = parseInt(array[1], 10);
+    if (float < 25) {
       return +whole;
     } else if (float >= 25 && float < 75) {
-      let output = whole + ".5";
+      let output = `${whole} .5`;
       return +output;
-    } else if (parseInt(whole) === 5) {
+    } else if (parseInt(whole, 10) === 5) {
       return 5;
     }
     return +whole + 1;
-    
   }
 
   calculateAvgRating(reviews) {
-    var total = 0;
-    var count = 0; 
-    for (let i = 0; i < reviews.length; i++) {
+    let total = 0;
+    let count = 0;
+    for (let i = 0; i < reviews.length; i += 1) {
       for (let criteria in reviews[i].rating) {
         total += reviews[i].rating[criteria];
-        count += 1;	
-      }	
+        count += 1;
+      }
     }
-    return this.roundRating(Math.floor(total/count*100)/100);
+    return this.roundRating(Math.floor(total / count * 100) / 100);
+  }
+
+  calculateRating(reviews, label) {
+    let total = 0;
+    for (let i = 0; i < reviews.length; i += 1) {
+      total += reviews[i].rating[label];
+    }
+    let doubleRating = Math.floor(total / reviews.length * 100) / 100;
+    let roundedRating = this.roundRating(doubleRating);
+    return roundedRating;
   }
 
   changePage(event) {
@@ -116,30 +124,19 @@ class App extends React.Component {
 
   goPrevPage() {
     if (this.state.pageNum !== 1) {
-      this.setState((prevState) => ({
-        pageNum: prevState.pageNum - 1
+      this.setState(prevState => ({
+        pageNum: prevState.pageNum - 1,
       }));
     }
   }
 
   goNextPage(totalReviews) {
-    if (this.state.pageNum !== Math.ceil(totalReviews.length/7)) {
-      this.setState((prevState) => ({
+    if (this.state.pageNum !== Math.ceil(totalReviews.length / 7)) {
+      this.setState(prevState => ({
         pageNum: prevState.pageNum + 1
       }));
     }
   }
-
-  calculateRating(reviews, label) {
-    let total = 0;
-    for (var i = 0; i < reviews.length; i++) {
-      total += reviews[i].rating[label];				
-    }
-    let doubleRating = Math.floor(total/reviews.length*100)/100;
-    let roundedRating = this.roundRating(doubleRating);
-    return roundedRating;
-  }
-
 
   showAllReviews() {
     this.setState({
@@ -187,7 +184,7 @@ class App extends React.Component {
 
   render() {
     const {
-      reviews, accuracy, communication, cleanliness,location,checkin, value,
+      reviews, accuracy, communication, cleanliness, location, checkin, value,
       totalRating, pageNum, searchResults, showSearch, searchTerm, showPopUp } = this.state;
     return (
       <div className={styles.app}>
