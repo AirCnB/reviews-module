@@ -5,7 +5,6 @@ const db = require('./index.js');
 const years = ['2018', '2017', '2016'];
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const users = ['Duss', 'Arthur', 'Edward', 'Diane', 'Shi-Hao', 'Rebecca', 'Sam'];
-const pictureurls = [];
 
 const randomDate = () => {
   const yearIndex = Math.floor(Math.random() * (years.length - 1));

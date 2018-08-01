@@ -1,7 +1,12 @@
-node_modules/
+/node_modules/*
+
 public/bundle.js
+
 jest.config.js
+
 README.md
-tests
-coverage/
-database/sampleData.text
+
+/tests/*
+/coverage/*
+
+/database/sampleData.text

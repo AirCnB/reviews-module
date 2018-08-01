@@ -32,6 +32,7 @@ class PageTabs extends React.Component {
 			</div>
 		)
 	}
+	
 	displayRightArrow(){
 		return (
 			<div className={styles.tab + " " + styles.next} onClick={this.props.goNextPage}>

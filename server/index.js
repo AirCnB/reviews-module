@@ -19,7 +19,7 @@ app.get('/:id/reviews', (req, res) => {
 
 app.post('/:id/reviews', (req, res) => {
   const id = parseInt(req.params.id, 10);
-  const searchTerm = req.body.searchTerm;
+  const { searchTerm } = req.body;
 
   db.returnSearch(id, searchTerm)
     .then(results => res.setMaxListeners(200).send(results))
