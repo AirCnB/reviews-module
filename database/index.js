@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const dataGenerator = require('./dataGenerator.js');
 
 mongoose.connect('mongodb://localhost/review');
 const db = mongoose.connection;
@@ -27,25 +26,16 @@ const reviewSchema = mongoose.Schema({
 });
 
 const Review = mongoose.model('Review', reviewSchema);
-const data = dataGenerator.makeData();
 
-const addData = () => {
-  Review.insertMany(data, (err) => {
-    if (err) {
-      console.log(err);
-    }
-  });
-};
+const returnReviews = id => (
+  Review.find({ roomId: id })
+);
 
-const returnReviews = (id, callback) => {
-  Review.find({ roomId: id }).exec(callback);
-};
+const returnSearch = (id, searchTerm) => (
+  Review.find({ roomId: id, text: { $regex: `.*${searchTerm}.*` } })
+);
 
-const returnSearch = (id, searchTerm, callback) => {
-  Review.find({ roomId: id, text: { $regex: `.*${searchTerm}.*` } }).exec(callback);
-};
-
-
-module.exports.addData = addData;
+module.exports.Review = Review;
+module.exports.db = db;
 module.exports.returnReviews = returnReviews;
 module.exports.returnSearch = returnSearch;
