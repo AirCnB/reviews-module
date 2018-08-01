@@ -11,6 +11,7 @@ class Stars extends React.Component {
     let starRating = [];
     let array = rating.toString().split('.');
     let whole = +array[0];
+    
     for (let i = 1; i <= whole; i+= 1) {
         starRating.push('star_full.svg');
     }
@@ -22,6 +23,7 @@ class Stars extends React.Component {
     }
     return starRating;
   }
+
   render () {
     return (
       <div className={styles.stars} >

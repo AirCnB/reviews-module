@@ -8,28 +8,13 @@ Reviews Module of AirCnB mocksite
 Npm run dev-react
 mongod
 mongo --host 127.0.0.1:27017
+npm install
 npm run start
+
+npm run seed (seed current database)
 `````
 
 in chrome browser: localhost:3003/listings/0
-
-### Prerequisites
-
-Install mongoose, mongoDB, express
-
-```
-
-npm install mongoose
-	mongo --host 127.0.0.1:27017
-
-```
-
-### Installing
-
-```
-npm install 
-
-```
 
 ## Running the tests
 
