@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import styles from '../css/AppStyles.css';
 import ReviewList from './ReviewList.jsx';
 import ReviewStats from './ReviewStats.jsx';
 import Header from './header.jsx';
-import styles from './AppStyles.css';
 import Flag from './Flag.jsx';
 
 class App extends React.Component {

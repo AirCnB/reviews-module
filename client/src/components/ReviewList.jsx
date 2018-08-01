@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './ReviewListStyles.css';
+import styles from '../css/ReviewListStyles.css';
 import PageTabs from './PageTabs.jsx';
 
 const ReviewList = (props) => {
