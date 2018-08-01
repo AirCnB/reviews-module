@@ -11,7 +11,7 @@ const ReviewList = (props) => {
     const displayedReviews = [];
     const startIndex = 7 * (pageNum - 1);
     const endIndex = (7 * pageNum) - 1;
-    for (let i = startIndex; i <= endIndex; i++) {
+    for (let i = startIndex; i <= endIndex; i += 1) {
       if (totalReviews[i] !== undefined) {
         displayedReviews.push(totalReviews[i]);
       }
@@ -19,33 +19,47 @@ const ReviewList = (props) => {
     return displayedReviews;
   };
 
+  const renderPageTabs = totalReviews => (
+    <PageTabs
+      pageNum={pageNum}
+      changePage={changePage}
+      totalTabs={Math.ceil(totalReviews.length/7)}
+      goNextPage={goNextPage}
+      goPrevPage={goPrevPage}
+    />
+  );
+
   const renderReviews = (reviews) => {
     const displayedReviews = getReviewsToDisplay(reviews);
     return (
-      <div className={styles.wrapper}> 
+      <div className={styles.wrapper}>
         {displayedReviews.map((review, index) => {
           return (
-          <div key={index} className={styles.review}>
-            <div className={styles.row1}>
-              <div className={styles.column1}>
-                <img className={styles.userpic} src="profile.svg" alt="profilePic"/>
+            <div key={index} className={styles.review}>
+              <div className={styles.row1}>
+                <div className={styles.column1}>
+                  <img className={styles.userpic} src="profile.svg" alt="profilePic"/>
+                </div>
+                <div className={styles.column2}>
+                  <div className={styles.username}>
+                    {review.user.name}
+                  </div>
+                  <div className={styles.date}>
+                    {review.date}
+                  </div>
+                </div>
+                <div className={styles.column3}>
+                  <img className={styles.flag} alt="flagIcon" onClick={renderFlagPopUp} src="flag.gif" /> 
+                </div>
               </div>
-              <div className={styles.column2}>
-                <div className={styles.username}> {review.user.name} </div>
-                <div className={styles.date}> {review.date} </div>
-              </div>
-              <div className={styles.column3}>
-                <img className={styles.flag} alt="flagIcon" onClick={renderFlagPopUp} src="flag.gif" /> 
+              <div className={styles.row2}>
+                <div className={styles.text}>
+                  {review.text}
+                </div>
               </div>
             </div>
-            <div className={styles.row2}>
-              <div className={styles.text}>
-                {review.text}
-              </div>
-            </div>
-          </div>
           );
-        })}	
+        })}
         {renderPageTabs(reviews)}
       </div>
     );
@@ -63,16 +77,6 @@ const ReviewList = (props) => {
       </div>
     );
   };
-
-  const renderPageTabs = totalReviews => (
-    <PageTabs
-      pageNum={pageNum}
-      changePage={changePage}
-      totalTabs={Math.ceil(totalReviews.length/7)}
-      goNextPage={goNextPage}
-      goPrevPage={goPrevPage}
-    />
-  );
 
   const renderReviewList = () => {
     if (showSearch === false) {

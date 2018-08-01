@@ -12,37 +12,39 @@ class App extends React.Component {
     this.state = {
       reviews:
         [{
-          roomId: 1,
+          roomId: null,
           user: {
-            name: 'name',
-            picture: 'url', 
+            name: null,
+            picture: null,
           },
-          text: 'text',
+          text: null,
           rating: {
-            accuracy: 4,
-            communication: 5,
-            cleanliness: 2,
-            location: 5,
-            checkin: 1,
-            value: 5,
+            accuracy: null,
+            communication: null,
+            cleanliness: null,
+            location: null,
+            checkin: null,
+            value: null,
           },
-          date: 'here',
+          date: null,
         }],
 
-      accuracy: 5,
+      accuracy: 4,
       communication: 5,
-      cleanliness: 5,
+      cleanliness: 4,
       location: 5,
       checkin: 5,
-      value: 5,	
-      totalRating: 2,
+      value: 4,
+
+      totalRating: 5,
 
       pageNum: 1,
       searchResults: [],
       showSearch: false,
       searchTerm: null,
       showPopUp: false,
-    }
+    };
+
     this.searchReviews = this.searchReviews.bind(this);
     this.showAllReviews = this.showAllReviews.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -58,6 +60,7 @@ class App extends React.Component {
     id = parseInt(id.substring(0, id.length), 10)    
     axios.get(`/${id}/reviews`)
       .then((response) => {
+        //calculate but it in another method
         const totalRating = this.calculateAvgRating(response.data);
         const accuracy = this.calculateRating(response.data, "accuracy");
         const communication = this.calculateRating(response.data, "communication");
@@ -87,14 +90,14 @@ class App extends React.Component {
       return +output;
     } else if (parseInt(whole) === 5) {
       return 5;
-    } else {
-      return +whole + 1 ;
     }
+    return +whole + 1;
+    
   }
 
   calculateAvgRating(reviews) {
     var total = 0;
-    var count = 0;
+    var count = 0; 
     for (let i = 0; i < reviews.length; i++) {
       for (let criteria in reviews[i].rating) {
         total += reviews[i].rating[criteria];
