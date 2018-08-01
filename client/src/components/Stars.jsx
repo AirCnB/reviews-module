@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import styles from './StarStyles.css';
 
 const Stars = (props) => {
-  const createStars = (rating) => {
+  const { rating } = props;
+  const createStars = (numRating) => {
     const starRating = [];
-    const array = rating.toString().split('.');
+    const array = numRating.toString().split('.');
     const whole = +array[0];
-    for (let i = 1; i <= whole; i+= 1) {
+    for (let i = 1; i <= whole; i += 1) {
       starRating.push('star_full.svg');
     }
     if (array.length > 1) {
@@ -21,7 +22,7 @@ const Stars = (props) => {
 
   return (
     <div className={styles.stars}>
-      {createStars(props.rating).map((star, index) => (
+      {createStars(rating).map((star, index) => (
         <img key={index} className={styles.categorystar} src={star} alt="Star" />
       ))}
     </div>

@@ -195,7 +195,7 @@ class App extends React.Component {
         <div className={styles.container}>
           <div className={styles.row1}>
             <Header
-              reviews={reviews} 
+              reviews={reviews}
               totalRating={totalRating}
               handleChange={this.handleChange}
               searchReviews={this.searchReviews}
