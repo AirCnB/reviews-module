@@ -7,8 +7,7 @@ const Flag = (props) => {
   if (showPopUp === true) {
     return (
       <div className="flag">
-      <div className={styles.background}>
-      </div>
+        <div className={styles.background} />
         <div className={styles.modal} id="showsFlag">
           <button className={styles.close} onClick={closeFlag}>
             X
@@ -17,7 +16,7 @@ const Flag = (props) => {
             Do you want to anonymously report this review?
           </header>
           <div className={styles.directions}>
-            If so, please choose one of the following reasons. 
+            If so, please choose one of the following reasons.
             <span className={styles.learnMore}>
               Learn more
             </span>
@@ -45,7 +44,7 @@ const Flag = (props) => {
 
               </div>
               <div className={styles.option}>
-                <input className={styles.radio} type="radio" name="gender" value="fake" /> 
+                <input className={styles.radio} type="radio" name="gender" value="fake" />
                 <div className={styles.title}>
                   Fake content
                 </div>
@@ -56,16 +55,20 @@ const Flag = (props) => {
             </form>
           </div>
           <div className={styles.submit}>
-            Submit 
+            Submit
           </div>
-        </div>  
+        </div>
       </div>
     );
-  } 
+  }
   return (
     <div className="flag" />
   );
-}
+};
+
+Flag.defaultProps = {
+  showPopUp: false,
+};
 
 Flag.propTypes = {
   showPopUp: PropTypes.bool,

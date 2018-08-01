@@ -5,7 +5,9 @@ import Stars from './Stars.jsx';
 import Search from './Search.jsx';
 
 const Header = (props) => {
-  const { reviews, totalRating, handleChange, searchReviews } = props;
+  const {
+    reviews, totalRating, handleChange, searchReviews,
+  } = props;
   return (
     <div className={styles.wrapper}>
       <div className={styles.leftcol}>
@@ -13,9 +15,9 @@ const Header = (props) => {
           {reviews.length} Reviews
         </div>
         <div className={styles.starsRating}>
-          <Stars 
+          <Stars
             rating={totalRating}
-          /> 
+          />
         </div>
       </div>
       <div className={styles.rightcol}>
@@ -35,7 +37,7 @@ Header.defaultProps = {
     roomId: 1,
     user: {
       name: 'name',
-      picture: 'url', 
+      picture: 'url',
     },
     text: 'text',
     rating: {

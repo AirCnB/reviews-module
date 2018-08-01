@@ -1,6 +1,5 @@
 const loremHipsum = require('lorem-hipsum');
 const fs = require('fs');
-const db = require('./index.js');
 
 const years = ['2018', '2017', '2016'];
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

@@ -26,4 +26,4 @@ app.post('/:id/reviews', (req, res) => {
     .catch(err => res.status(500).send(err));
 });
 
-module.exports.app = app;
+module.exports = app;

@@ -4,8 +4,10 @@ import styles from '../css/ReviewListStyles.css';
 import PageTabs from './PageTabs.jsx';
 
 const ReviewList = (props) => {
-  const { reviews, searchResults, searchTerm, showSearch, pageNum, 
-    changePage, goPrevPage, goNextPage, showAllReviews, renderFlagPopUp } = props;
+  const {
+    reviews, searchResults, searchTerm, showSearch, pageNum,
+    changePage, goPrevPage, goNextPage, showAllReviews, renderFlagPopUp,
+  } = props;
 
   const getReviewsToDisplay = (totalReviews) => {
     const displayedReviews = [];
@@ -23,60 +25,60 @@ const ReviewList = (props) => {
     <PageTabs
       pageNum={pageNum}
       changePage={changePage}
-      totalTabs={Math.ceil(totalReviews.length/7)}
+      totalTabs={Math.ceil(totalReviews.length / 7)}
       goNextPage={goNextPage}
       goPrevPage={goPrevPage}
     />
   );
 
-  const renderReviews = (reviews) => {
-    const displayedReviews = getReviewsToDisplay(reviews);
+  const renderReviews = (renderedReviews) => {
+    const displayedReviews = getReviewsToDisplay(renderedReviews);
     return (
       <div className={styles.wrapper}>
-        {displayedReviews.map((review, index) => {
-          return (
-            <div key={index} className={styles.review}>
-              <div className={styles.row1}>
-                <div className={styles.column1}>
-                  <img className={styles.userpic} src="profile.svg" alt="profilePic"/>
+        {displayedReviews.map((review, index) => (
+          <div key={index} className={styles.review}>
+            <div className={styles.row1}>
+              <div className={styles.column1}>
+                <img className={styles.userpic} src="profile.svg" alt="profilePic" />
+              </div>
+              <div className={styles.column2}>
+                <div className={styles.username}>
+                  {review.user.name}
                 </div>
-                <div className={styles.column2}>
-                  <div className={styles.username}>
-                    {review.user.name}
-                  </div>
-                  <div className={styles.date}>
-                    {review.date}
-                  </div>
-                </div>
-                <div className={styles.column3}>
-                  <img className={styles.flag} alt="flagIcon" onClick={renderFlagPopUp} src="flag.gif" /> 
+                <div className={styles.date}>
+                  {review.date}
                 </div>
               </div>
-              <div className={styles.row2}>
-                <div className={styles.text}>
-                  {review.text}
-                </div>
+              <div className={styles.column3}>
+                <img className={styles.flag} alt="flagIcon" onClick={renderFlagPopUp} src="flag.gif" />
               </div>
             </div>
-          );
-        })}
-        {renderPageTabs(reviews)}
+            <div className={styles.row2}>
+              <div className={styles.text}>
+                {review.text}
+              </div>
+            </div>
+          </div>
+        ))}
+        {renderPageTabs(renderedReviews)}
       </div>
     );
   };
 
-  const renderSearchHeader = (numReviewsFound) => {
-    return (
-      <div className={styles.searchheaderwrapper}>
-        <span className={styles.topRow}>
-          {numReviewsFound} of our guests have mentioned "<b>{searchTerm}</b>"
-        </span>
-        <span className={styles.goback} onClick={showAllReviews}>
-          Back to all reviews
-        </span>
-      </div>
-    );
-  };
+  const renderSearchHeader = numReviewsFound => (
+    <div className={styles.searchheaderwrapper}>
+      <span className={styles.topRow}>
+        {numReviewsFound} of our guests have mentioned "
+        <b>
+          {searchTerm}
+        </b>
+        "
+      </span>
+      <span className={styles.goback} onClick={showAllReviews}>
+        Back to all reviews
+      </span>
+    </div>
+  );
 
   const renderReviewList = () => {
     if (showSearch === false) {
@@ -88,7 +90,7 @@ const ReviewList = (props) => {
     } else if (searchResults.length === 0) {
       return (
         <div>
-          {renderSearchHeader("None")}
+          {renderSearchHeader('None')}
         </div>
       );
     } else {
