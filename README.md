@@ -22,6 +22,7 @@ npm run seed
 ##Running the Tests
 
 Tests are run and run with Jest
+note: close nodemon/server before running tests
 ```
 npm run test
 ```

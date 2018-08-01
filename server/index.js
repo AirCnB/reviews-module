@@ -25,3 +25,5 @@ app.post('/:id/reviews', (req, res) => {
     .then(results => res.setMaxListeners(200).send(results))
     .catch(err => res.status(404).send(err));
 });
+
+module.exports.app = app;
