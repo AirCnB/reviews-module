@@ -36,7 +36,7 @@ class PageTabs extends React.Component {
 	}
 
 	displayFirstTab() {
-    if(this.props.pageNum - 1 !== 1) {
+    if(this.props.pageNum - 1 >= 1) {
 			return (
 				<div className={styles.tab}>
 					{this.displayTab(1)}
@@ -64,6 +64,7 @@ class PageTabs extends React.Component {
 			)
 		}
 	}
+	
 	displayCurrentTab() {
 		return (
 			<div className={styles.currentTab}>
@@ -109,33 +110,6 @@ class PageTabs extends React.Component {
 					<button className={styles.arrow}><span>&rsaquo;</span></button>
 				</div>
 			)
-		}
-	}
-
-	displayAllTabs () {
-		if (this.props.pageNum === 2){
-				
-		} else if (this.props.pageNum === this.props.totalTabs) {
-			return (
-				<div>
-				{this.displayTab(1)}
-				<div className={styles.tab}> ... </div>
-				{this.displayTab(this.props.pageNum - 1)}
-				{this.displayTab(this.props.pageNum)}
-				</div>
-			);
-		} else {
-			return (
-				<div>
-				{this.displayTab(1)} 
-				<div className={styles.tab}> ... </div>
-				{this.displayTab(this.props.pageNum - 1)}
-				{this.displayTab(this.props.pageNum)}
-				{this.displayTab(this.props.pageNum + 1)}
-				<div className={styles.tab}> ... </div>
-				{this.displayTab(this.props.totalTabs)}
-				</div>
-			);
 		}
 	}
 
