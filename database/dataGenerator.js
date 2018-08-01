@@ -1,12 +1,11 @@
 const loremHipsum = require('lorem-hipsum');
-const db = require('./index.js');
 const fs = require('fs');
+const db = require('./index.js');
 
 const years = ['2018', '2017', '2016'];
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const users = ['Duss', 'Arthur', 'Edward', 'Diane', 'Shi-Hao', 'Rebecca', 'Sam'];
 const pictureurls = [];
-const headers = ['id', 'roomId', 'uesr', 'text', 'rating', 'date'];
 
 const randomDate = () => {
   const yearIndex = Math.floor(Math.random() * (years.length - 1));
@@ -49,7 +48,7 @@ const makeData = () => {
       repeat -= 1;
     }
   }
-  let JSONdata = JSON.stringify(reviewsList);
+  const JSONdata = JSON.stringify(reviewsList);
 
   fs.writeFile('./database/sampleData.txt', JSONdata, (error) => {
     if (error) {
@@ -60,17 +59,17 @@ const makeData = () => {
 
 const seedDb = () => {
   fs.readFile('./database/sampleData.txt', (error, data) => {
-      if (error) {
-        console.log(error);
+    if (error) {
+      console.log(error);
+    }
+    const reviewsData = JSON.parse(data);
+    db.Review.insertMany(reviewsData, (err) => {
+      if (err) {
+        console.log(err);
       }
-      data = JSON.parse(data);
-      db.Review.insertMany(data, (err) => {
-        if (err) {
-          console.log(err);
-        }
-      });
+    });
   });
-}
+};
 
 makeData();
 
