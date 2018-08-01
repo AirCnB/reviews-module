@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './headerStyles.css';
+import styles from '../css/headerStyles.css';
 import Stars from './Stars.jsx';
 import Search from './Search.jsx';
 

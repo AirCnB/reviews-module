@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './StarStyles.css';
+import styles from '../css/StarStyles.css';
 
 const Stars = (props) => {
   const { rating } = props;

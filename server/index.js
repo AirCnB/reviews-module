@@ -14,7 +14,7 @@ app.get('/:id/reviews', (req, res) => {
   const id = parseInt(req.params.id, 10);
   db.returnReviews(id)
     .then(reviews => res.setMaxListeners(200).send(reviews))
-    .catch(err => res.status(503).send(err));
+    .catch(err => res.status(500).send(err));
 });
 
 app.post('/:id/reviews', (req, res) => {

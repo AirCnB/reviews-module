@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './FlagStyles.css';
+import styles from '../css/FlagStyles.css';
 
 const Flag = (props) => {
   const { showPopUp, closeFlag } = props;

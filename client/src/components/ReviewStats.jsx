@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './ReviewStatsStyles.css';
+import styles from '../css/ReviewStatsStyles.css';
 import Stars from './Stars.jsx';
 
 const ReviewStats = (props) => {
