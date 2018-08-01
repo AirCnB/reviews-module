@@ -2,134 +2,128 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './PageTabsStyles.css';
 
-class PageTabs extends React.Component {
-  constructor(props) {
-    super(props);
-    this.displayTab = this.displayTab.bind(this);
-    this.displayLeftArrow = this.displayLeftArrow.bind(this);
-    this.displayFirstTab = this.displayFirstTab.bind(this);
-    this.displayFirstEllipses = this.displayFirstEllipses.bind(this);
-    this.displayPrevTab = this.displayPrevTab.bind(this);
-    this.displayCurrentTab = this.displayCurrentTab.bind(this);
-    this.displayNextTab = this.displayNextTab.bind(this);
-    this.displayLastEllipses = this.displayLastEllipses.bind(this);
-    this.displayLastTab = this.displayLastTab.bind(this);
-    this.displayRightArrow = this.displayRightArrow.bind(this);
-  }
+const PageTabs = (props) => {
+  const {
+    pageNum, changePage, totalTabs, goNextPage, goPrevPage
+  } = props;
 
-  displayTab(tabNum) {
+  const displayTab = (tabNum) => {
     return (
       <div>
-        <span onClick={this.props.changePage}>{tabNum}</span>
+        <span onClick={changePage}>
+          {tabNum}
+        </span>
       </div>
     );
-  }
+  };
 
-  displayLeftArrow() {
-    if (this.props.pageNum !== 1) {
+  const displayLeftArrow = () => {
+    if (pageNum !== 1) {
       return (
-        <div className={styles.tab + " " + styles.prev} onClick={this.props.goPrevPage}>
-          <button className={styles.arrow}><span>&lsaquo;</span></button>
+        <div className={styles.tab + " " + styles.prev} onClick={goPrevPage}>
+          <button className={styles.arrow}>
+            <span>
+              &lsaquo;
+            </span>
+          </button>
         </div>
       );
     }
-  }
+  };
 
-  displayFirstTab() {
-    if (this.props.pageNum - 1 >= 1) {
+  const displayFirstTab = () => {
+    if (pageNum - 1 >= 1) {
       return (
         <div className={styles.tab}>
-          {this.displayTab(1)}
+          {displayTab(1)}
         </div>
       );
     }
-  }
+  };
 
-  displayFirstEllipses() {
-    if (this.props.pageNum - 3 >= 1) {
+  const displayFirstEllipses = () => {
+    if (pageNum - 3 >= 1) {
       return (
         <div className={styles.tab}>
           <div>...</div>
         </div>
       );
     }
-  }
+  };
 
-  displayPrevTab() {
-    if (this.props.pageNum - 1 > 1) {
+  const displayPrevTab = () => {
+    if (pageNum - 1 > 1) {
       return (
         <div className={styles.tab}>
-          {this.displayTab(this.props.pageNum - 1)}
+          {displayTab(pageNum - 1)}
         </div>
       );
     }
-  }
+  };
 
-  displayCurrentTab() {
+  const displayCurrentTab = () => {
     return (
       <div className={styles.currentTab}>
-        {this.displayTab(this.props.pageNum)}
+        {displayTab(pageNum)}
       </div>
     );
-  }
+  };
 
-  displayNextTab() {
-    if (this.props.pageNum < this.props.totalTabs - 1) {
+  const displayNextTab = () => {
+    if (pageNum < totalTabs - 1) {
       return (
         <div className={styles.tab}>
-          {this.displayTab(this.props.pageNum + 1)}
+          {displayTab(pageNum + 1)}
         </div>
       );
     }
-  }
+  };
 
-  displayLastEllipses() {
-    if (this.props.pageNum < this.props.totalTabs - 2) {
+  const displayLastEllipses = () => {
+    if (pageNum < totalTabs - 2) {
       return (
         <div className={styles.tab}>
           <div>...</div>
         </div>
       );
     }
-  }
+  };
 
-  displayLastTab() {
-    if (this.props.pageNum !== this.props.totalTabs) {
+  const displayLastTab = () => {
+    if (pageNum !== totalTabs) {
       return (
         <div className={styles.tab}>
-          {this.displayTab(this.props.totalTabs)}
+          {displayTab(totalTabs)}
         </div>
       );
     }
-  }
+  };
 
-  displayRightArrow() {
-    if (this.props.pageNum !== this.props.totalTabs) {
+  const displayRightArrow = () => {
+    if (pageNum !== totalTabs) {
       return (
-        <div className={styles.tab + " " + styles.next} onClick={this.props.goNextPage}>
+        <div className={styles.tab + " " + styles.next} onClick={goNextPage}>
           <button className={styles.arrow}><span>&rsaquo;</span></button>
       </div>
       );
     }
-  }
+  };
 
-  render () {		
-    return (
-      <div>
-        <div className={styles.pageTabs}>
-          {this.displayLeftArrow()}
-          {this.displayFirstTab()}
-          {this.displayFirstEllipses()}
-          {this.displayPrevTab()}
-          {this.displayCurrentTab()}
-          {this.displayNextTab()}
-          {this.displayLastEllipses()}
-          {this.displayLastTab()}
-          {this.displayRightArrow()}
-        </div>
+  return (
+    <div>
+      <div className={styles.pageTabs}>
+        {displayLeftArrow()}
+        {displayFirstTab()}
+        {displayFirstEllipses()}
+        {displayPrevTab()}
+        {displayCurrentTab()}
+        {displayNextTab()}
+        {displayLastEllipses()}
+        {displayLastTab()}
+        {displayRightArrow()}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 PageTabs.defaultProps = {

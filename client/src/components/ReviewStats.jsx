@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ReviewStatsStyles.css';
-import Stars from './Stars.jsx'
+import Stars from './Stars.jsx';
 
 const ReviewStats = (props) => {
-  const { accuracy, communication, cleanliness, location, checkin, value } = props;
+  const {
+    accuracy, communication, cleanliness, location, checkin, value,
+  } = props;
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.leftCol}>
@@ -61,7 +64,7 @@ const ReviewStats = (props) => {
       </div>
     </div>
   );
-}
+};
 
 ReviewStats.defaultProps = {
   accuracy: 3,

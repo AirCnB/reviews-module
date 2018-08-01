@@ -3,17 +3,11 @@ import PropTypes from 'prop-types';
 import styles from './ReviewListStyles.css';
 import PageTabs from './PageTabs.jsx';
 
-class ReviewList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.renderReviews = this.renderReviews.bind(this);
-    this.getReviewsToDisplay = this.getReviewsToDisplay.bind(this);
-    this.renderSearchHeader = this.renderSearchHeader.bind(this);
-    this.renderPageTabs = this.renderPageTabs.bind(this);
-  }
+const ReviewList = (props) => {
+  const { reviews, searchResults, searchTerm, showSearch, pageNum, 
+    changePage, goPrevPage, goNextPage, showAllReviews, renderFlagPopUp } = props;
 
-  getReviewsToDisplay(totalReviews) {
-    const pageNum = this.props.pageNum;
+  const getReviewsToDisplay = (totalReviews) => {
     const displayedReviews = [];
     const startIndex = 7 * (pageNum - 1);
     const endIndex = (7 * pageNum) - 1;
@@ -23,10 +17,10 @@ class ReviewList extends React.Component {
       }
     }
     return displayedReviews;
-  }
+  };
 
-  renderReviews(reviews) {
-    const displayedReviews = this.getReviewsToDisplay(reviews);
+  const renderReviews = (reviews) => {
+    const displayedReviews = getReviewsToDisplay(reviews);
     return (
       <div className={styles.wrapper}> 
         {displayedReviews.map((review, index) => {
@@ -34,80 +28,86 @@ class ReviewList extends React.Component {
           <div key={index} className={styles.review}>
             <div className={styles.row1}>
               <div className={styles.column1}>
-							  <img className={styles.userpic} src="profile.svg" />
-							</div>
+                <img className={styles.userpic} src="profile.svg" alt="profilePic"/>
+              </div>
               <div className={styles.column2}>
                 <div className={styles.username}> {review.user.name} </div>
                 <div className={styles.date}> {review.date} </div>
               </div>
-              <div className={styles.column3}> <img className={styles.flag} onClick={this.props.renderFlagPopUp} src="flag.gif"/> </div>
+              <div className={styles.column3}>
+                <img className={styles.flag} alt="flagIcon" onClick={renderFlagPopUp} src="flag.gif" /> 
+              </div>
             </div>
             <div className={styles.row2}>
-              <div className={styles.text}> {review.text} </div>
+              <div className={styles.text}>
+                {review.text}
+              </div>
             </div>
           </div>
           );
         })}	
-        {this.renderPageTabs(reviews)}
+        {renderPageTabs(reviews)}
       </div>
     );
-  }
+  };
 
-  renderSearchHeader (numReviewsFound) {
+  const renderSearchHeader = (numReviewsFound) => {
     return (
-      <div className={styles.searchheaderwrapper}> 
+      <div className={styles.searchheaderwrapper}>
         <span className={styles.topRow}>
-          {numReviewsFound} of our guests have mentioned "<b>{this.props.searchTerm}</b>" 
+          {numReviewsFound} of our guests have mentioned "<b>{searchTerm}</b>"
         </span>
-      	<span className={styles.goback} onClick={this.props.showAllReviews}>
-      		Back to all reviews
-      	</span>
+        <span className={styles.goback} onClick={showAllReviews}>
+          Back to all reviews
+        </span>
       </div>
-    )
-	}
-	
-  renderPageTabs (totalReviews) {
-    return (
-      <PageTabs
-        pageNum={this.props.pageNum}
-        changePage={this.props.changePage}
-        totalTabs={Math.ceil(totalReviews.length/7)}
-        goNextPage={this.props.goNextPage}
-        goPrevPage={this.props.goPrevPage}
-      />
-    )
-  }
+    );
+  };
 
-  render() {
-    if (this.props.showSearch === false) {
+  const renderPageTabs = totalReviews => (
+    <PageTabs
+      pageNum={pageNum}
+      changePage={changePage}
+      totalTabs={Math.ceil(totalReviews.length/7)}
+      goNextPage={goNextPage}
+      goPrevPage={goPrevPage}
+    />
+  );
+
+  const renderReviewList = () => {
+    if (showSearch === false) {
       return (
         <div>
-          {this.renderReviews(this.props.reviews)}
+          {renderReviews(reviews)}
         </div>
       );
-    } else if (this.props.searchResults.length === 0) {
+    } else if (searchResults.length === 0) {
       return (
-        <div>				
-        	{this.renderSearchHeader("None")}
+        <div>
+          {renderSearchHeader("None")}
         </div>
       );
     } else {
       return (
-      	<div>
-          {this.renderSearchHeader(this.props.searchResults.length)}
-          {this.renderReviews(this.props.searchResults)}
-      	</div>
-      )
+        <div>
+          {renderSearchHeader(searchResults.length)}
+          {renderReviews(searchResults)}
+        </div>
+      );
     }
-  }
-}
+  };
+
+  return (
+    renderReviewList()
+  );
+};
 
 ReviewList.defaultProps = {
   reviews: [{
     roomId: 1,
     user: {
       name: 'name',
-      picture: 'url', 
+      picture: 'url',
     },
     text: 'text',
     rating: {
@@ -124,7 +124,7 @@ ReviewList.defaultProps = {
     roomId: 1,
     user: {
       name: 'name',
-      picture: 'url', 
+      picture: 'url',
     },
     text: 'text',
     rating: {
