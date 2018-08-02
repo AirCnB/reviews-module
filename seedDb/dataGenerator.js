@@ -48,7 +48,7 @@ const makeData = () => {
   }
   const JSONdata = JSON.stringify(reviewsList);
 
-  fs.writeFile('./database/sampleData.txt', JSONdata, (error) => {
+  fs.writeFile('./seedDb/sampleData.txt', JSONdata, (error) => {
     if (error) {
       console.log(error);
     }
