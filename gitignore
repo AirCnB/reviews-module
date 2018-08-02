@@ -1,0 +1,11 @@
+**/npm/
+**/npm/debug.log
+**/node_modules/
+
+**/public/bundle.js
+
+**/coverage/
+
+**/.vscode
+
+**/.DS_Store

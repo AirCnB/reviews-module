@@ -1,0 +1,19 @@
+{
+  "name": "seeddb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "seedDb.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "makeData": "node database/dataGenerator.js",
+    "seed": "node database/seedDb.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lorem-hipsum": "^0.1.7"
+  },
+  "dependencies": {
+    "mongoose": "^5.2.6"
+  }
+}
