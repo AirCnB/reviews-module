@@ -52,6 +52,7 @@ const makeData = () => {
     if (error) {
       console.log(error);
     }
+    console.log('sampleData.txt generated)');
   });
 };
 

@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/listings/:id', express.static('public'));
 
-app.listen(3003, () => console.log('Reviews Module listening on port 3003!'));
+app.listen(3003, () => console.log('Reviews Module listening on port 3003'));
 
 app.get('/:id/reviews', (req, res) => {
   const id = parseInt(req.params.id, 10);
