@@ -5,8 +5,8 @@
   "main": "seedDb.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "makeData": "node database/dataGenerator.js",
-    "seed": "node database/seedDb.js"
+    "makeData": "node dataGenerator.js",
+    "seed": "node seedDb.js"
   },
   "author": "",
   "license": "ISC",

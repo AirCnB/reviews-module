@@ -11,7 +11,7 @@ mongod
 mongo --host 127.0.0.1:27017
 `````
 
-##Seeding the DataBase
+## Seeding the DataBase
 
 cd into 'seed' directory
 
