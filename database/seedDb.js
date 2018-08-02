@@ -11,6 +11,7 @@ const seedDb = () => {
       if (err) {
         console.log(err);
       }
+      console.log('Reviews database seeded');
     });
   });
 };
