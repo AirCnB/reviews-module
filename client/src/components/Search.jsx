@@ -6,7 +6,7 @@ const Search = (props) => {
   const { searchReviews, handleChange } = props;
   return (
     <div className={styles.searchContainer}>
-      <img src="search.svg" alt="searchIcon" className={styles.searchIcon} />
+      <img src="https://s3-us-west-1.amazonaws.com/hrsf99fec/icons/search.svg" alt="searchIcon" className={styles.searchIcon} />
       <input
         type="search"
         className={styles.searchBox}

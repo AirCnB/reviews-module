@@ -49,10 +49,8 @@ Start Reviews Server
 `````
 npm run start
 `````
-Server will be served on port 3003
-To see display in chrome browser, go to : 
-    localhost:3003/listings/<<id>>
-Mock data is generated for listings id 0 to 99
+Server is hosted on port 3003
+open up `localhost:3003/listings/<<id>>` for house listings id 0 to 99
 
 ## Accessing Dockerized Reviews Module Component
 

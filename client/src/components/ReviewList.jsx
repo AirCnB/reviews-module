@@ -39,7 +39,7 @@ const ReviewList = (props) => {
           <div key={index} className={styles.review}>
             <div className={styles.row1}>
               <div className={styles.column1}>
-                <img className={styles.userpic} src="profile.svg" alt="profilePic" />
+                <img className={styles.userpic} src="https://s3-us-west-1.amazonaws.com/hrsf99fec/icons/profile.svg" alt="profilePic" />
               </div>
               <div className={styles.column2}>
                 <div className={styles.username}>
@@ -50,7 +50,7 @@ const ReviewList = (props) => {
                 </div>
               </div>
               <div className={styles.column3}>
-                <img className={styles.flag} alt="flagIcon" onClick={renderFlagPopUp} src="flag.gif" />
+                <img className={styles.flag} alt="flagIcon" onClick={renderFlagPopUp} src="https://s3-us-west-1.amazonaws.com/hrsf99fec/icons/flag.gif" />
               </div>
             </div>
             <div className={styles.row2}>
