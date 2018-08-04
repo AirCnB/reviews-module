@@ -14,7 +14,7 @@ const ReviewList = (props) => {
     const startIndex = 7 * (pageNum - 1);
     const endIndex = (7 * pageNum) - 1;
     for (let i = startIndex; i <= endIndex; i += 1) {
-      if (totalReviews[i] !== undefined) {
+      if (totalReviews[i]) {
         displayedReviews.push(totalReviews[i]);
       }
     }
@@ -39,7 +39,7 @@ const ReviewList = (props) => {
           <div key={index} className={styles.review}>
             <div className={styles.row1}>
               <div className={styles.column1}>
-                <img className={styles.userpic} src="https://s3-us-west-1.amazonaws.com/hrsf99fec/icons/profile.svg" alt="profilePic" />
+                <img className={styles.userpic} src={review.user.picture} alt="profilePic" />
               </div>
               <div className={styles.column2}>
                 <div className={styles.username}>
