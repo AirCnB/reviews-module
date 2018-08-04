@@ -17,7 +17,7 @@ app.get('/:id/reviews', (req, res) => {
     .catch(err => res.status(500).send(err));
 });
 
-app.get('/:id/reviews/query=:searchTerm', (req, res) => {
+app.post('/:id/reviews/query=:searchTerm', (req, res) => {
   const id = parseInt(req.params.id, 10);
   const searchTerm = req.params.searchTerm;
   db.returnSearch(id, searchTerm)
