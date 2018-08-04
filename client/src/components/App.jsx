@@ -162,7 +162,7 @@ class App extends React.Component {
     const searchTerm = this.state.searchTerm;
     let id = window.location.pathname.slice(10);
     id = parseInt(id.substring(0, id.length), 10);
-    axios.post(`/${id}/reviews/query=${searchTerm}`)
+    axios.get(`/${id}/reviews/query=${searchTerm}`)
       .then((response) => {
         const searchResults = response.data;
         this.setState({
