@@ -13,7 +13,7 @@ app.listen(3003, () => console.log('Reviews Module listening on port 3003'));
 app.get('/:id/reviews', (req, res) => {
   const id = parseInt(req.params.id, 10);
   db.returnReviews(id)
-    .then(reviews => res.setMaxListeners(200).send(reviews))
+    .then(reviews => res.status(200).send(reviews))
     .catch(err => res.status(500).send(err));
 });
 
@@ -21,7 +21,7 @@ app.post('/:id/reviews/query=:searchTerm', (req, res) => {
   const id = parseInt(req.params.id, 10);
   const searchTerm = req.params.searchTerm;
   db.returnSearch(id, searchTerm)
-    .then(results => res.setMaxListeners(200).send(results))
+    .then(results => res.status(200).send(results))
     .catch(err => res.status(500).send(err));
 });
 
